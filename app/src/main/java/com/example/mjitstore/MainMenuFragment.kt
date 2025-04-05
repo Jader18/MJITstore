@@ -51,6 +51,11 @@ class MainMenuFragment : Fragment() {
             findNavController().navigate(R.id.deMenutoAbout,null,navOptions)
         }
 
+        binding.btnCatalogo.setOnClickListener{
+
+            findNavController().navigate(R.id.deMenuaCatalogo,null,navOptions)
+        }
+
 
     }
 }

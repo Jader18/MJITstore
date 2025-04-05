@@ -8,6 +8,16 @@
 
     <!-- TODO: Update blank fragment layout -->
 
+    <TextView
+        android:layout_width="361dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="5dp"
+        android:gravity="center"
+        android:shadowColor="#000000"
+        android:text=""
+        android:textSize="20sp"
+        android:textStyle="bold" />
     <Button
         android:id="@+id/bBack"
         android:layout_width="wrap_content"
@@ -20,16 +30,6 @@
         android:padding="10dp"
         android:text="Volver"
         android:textSize="10sp" />
-    <TextView
-        android:layout_width="361dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="5dp"
-        android:gravity="center"
-        android:shadowColor="#000000"
-        android:text="La verdad de las cosas es que supuestamente somos la mera yuca de la sopa en tecnologias como empresa mi shak, no se como putas vamos a terminar este proyecto en una semana pero pues hay que echarle ganas"
-        android:textSize="20sp"
-        android:textStyle="bold" />
 
 
 </FrameLayout>
