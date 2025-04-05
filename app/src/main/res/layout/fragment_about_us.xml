@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AboutUsFragment"
+    android:orientation="vertical">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <Button
+        android:id="@+id/bBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:layout_marginTop="6dp"
+        android:layout_marginStart="5dp"
+        android:background="@drawable/btn_ripple"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="Volver"
+        android:textSize="10sp" />
+    <TextView
+        android:layout_width="361dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="5dp"
+        android:gravity="center"
+        android:shadowColor="#000000"
+        android:text="La verdad de las cosas es que supuestamente somos la mera yuca de la sopa en tecnologias como empresa mi shak, no se como putas vamos a terminar este proyecto en una semana pero pues hay que echarle ganas"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+
+</FrameLayout>

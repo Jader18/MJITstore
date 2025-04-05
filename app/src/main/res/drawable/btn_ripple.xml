@@ -1,0 +1,12 @@
+<ripple xmlns:android="http://schemas.android.com/apk/res/android"
+    android:color="#20000000"> <!-- Color del ripple -->
+    <item android:drawable="@drawable/mibtnpersonalizado" /> <!-- Fondo normal -->
+
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="#000000" /> <!-- Fondo negro -->
+            <corners android:radius="0dp" /> <!-- Bordes rectos (rectangular) -->
+            <stroke android:width="1dp" android:color="#424242" /> <!-- Borde sutil gris oscuro -->
+        </shape>
+    </item>
+</ripple>
