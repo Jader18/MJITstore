@@ -1,6 +1,7 @@
 package com.example.mjitstore
 
 import android.animation.ObjectAnimator
+import android.media.MediaPlayer
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -12,6 +13,7 @@ import com.example.mjitstore.databinding.FragmentAboutUsBinding
 class AboutUsFragment : Fragment() {
 
     private lateinit var binding: FragmentAboutUsBinding
+    private var mediaPlayer: MediaPlayer? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -26,6 +28,7 @@ class AboutUsFragment : Fragment() {
         setupAboutUsInfo()
         setupButton()
         startScrollAnimation()
+        playCreditsSound() // Reproducir el audio al mostrar el fragment
     }
 
     private fun setupAboutUsInfo() {
@@ -62,5 +65,23 @@ class AboutUsFragment : Fragment() {
                 false // Permitir que el ScrollView maneje el toque
             }
         }
+    }
+
+    private fun playCreditsSound() {
+        // Crear el MediaPlayer con el archivo de audio en res/raw
+        mediaPlayer = MediaPlayer.create(requireContext(), R.raw.credits)
+        mediaPlayer?.setOnCompletionListener {
+            // Liberar recursos cuando el audio termine
+            mediaPlayer?.release()
+            mediaPlayer = null
+        }
+        mediaPlayer?.start() // Iniciar la reproducción
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        // Liberar el MediaPlayer si aún está activo
+        mediaPlayer?.release()
+        mediaPlayer = null
     }
 }
