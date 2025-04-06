@@ -76,7 +76,7 @@
                 android:id="@+id/tvTelefono"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Teléfono: 8888-8888"
+                android:text="Teléfono: 7657-1646"
                 android:textSize="14sp"
                 android:textColor="#333333"
                 android:paddingBottom="4dp" />

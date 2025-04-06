@@ -348,52 +348,7 @@
                     android:text="Disponible" />
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:background="@android:color/white"
-                android:elevation="2dp"
-                android:orientation="vertical"
-                android:padding="8dp">
-
-                <ImageView
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:layout_gravity="center"
-                    android:contentDescription="@string/logo_gpu"
-                    android:src="@drawable/logo_gpu" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Case ATX RGB"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Compatible con ATX"
-                    android:textSize="14sp" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Precio: $79.99"
-                    android:textColor="@android:color/holo_green_dark"
-                    android:textSize="14sp" />
-
-                <!-- Toggle para Stock -->
-                <Switch
-                    android:id="@+id/toggle_case"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:text="Disponible" />
-            </LinearLayout>
-
-            <!-- Producto 8: Monitor -->
+            <!-- Producto 8: USB -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -425,60 +380,103 @@
 
                 <!-- Toggle para Stock -->
                 <Switch
-                    android:id="@+id/toggle_monitor"
+                    android:id="@+id/toggle_usb"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:text="Disponible" />
             </LinearLayout>
 
-            <!-- Producto 9: Fuente de poder -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:background="@android:color/white"
-                android:elevation="2dp"
-                android:orientation="vertical"
-                android:padding="8dp">
+             <!-- Elemento 9: Monitor -->
+             <LinearLayout
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:orientation="vertical"
+                 android:background="@android:color/white"
+                 android:elevation="2dp"
+                 android:padding="8dp"
+                 android:layout_marginBottom="8dp">
 
-                <ImageView
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:layout_gravity="center"
-                    android:contentDescription="@string/logo_psu"
-                    android:src="@drawable/logo_psu" />
+                 <ImageView
+                     android:layout_width="100dp"
+                     android:layout_height="100dp"
+                     android:src="@drawable/logo_monitor"
+                     android:layout_gravity="center"
+                     android:contentDescription="@string/logo_monitor" />
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Fuente de poder 750W"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
+                 <TextView
+                     android:layout_width="match_parent"
+                     android:layout_height="wrap_content"
+                     android:text="Monitor 27 144Hz"
+                     android:textSize="18sp"
+                     android:textStyle="bold" />
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Certificación 80+ Gold"
-                    android:textSize="14sp" />
+                 <TextView
+                     android:layout_width="match_parent"
+                     android:layout_height="wrap_content"
+                     android:text="Resolución 2560x1440"
+                     android:textSize="14sp" />
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Precio: $129.99"
-                    android:textColor="@android:color/holo_green_dark"
-                    android:textSize="14sp" />
+                 <TextView
+                     android:layout_width="match_parent"
+                     android:layout_height="wrap_content"
+                     android:text="Precio: $249.99"
+                     android:textSize="14sp"
+                     android:textColor="@android:color/holo_green_dark" />
 
-                <!-- Toggle para Stock -->
-                <Switch
-                    android:id="@+id/toggle_psu"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:text="Disponible" />
-            </LinearLayout>
+                 <Switch
+                     android:id="@+id/toggle_monitor"
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:layout_marginTop="8dp"
+                     android:text="Disponible" />
+             </LinearLayout>
 
-            <!-- Producto 10: Case -->
+            <!-- Producto 10: PSU -->
+             <LinearLayout
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:orientation="vertical"
+                 android:background="@android:color/white"
+                 android:elevation="2dp"
+                 android:padding="8dp"
+                 android:layout_marginBottom="8dp">
+
+                 <ImageView
+                     android:layout_width="100dp"
+                     android:layout_height="100dp"
+                     android:src="@drawable/logo_psu"
+                     android:layout_gravity="center"
+                     android:contentDescription="@string/logo_psu" />
+
+                 <TextView
+                     android:layout_width="match_parent"
+                     android:layout_height="wrap_content"
+                     android:text="Fuente de Poder 650W"
+                     android:textSize="18sp"
+                     android:textStyle="bold" />
+
+                 <TextView
+                     android:layout_width="match_parent"
+                     android:layout_height="wrap_content"
+                     android:text="80 Plus Gold, modular"
+                     android:textSize="14sp" />
+
+                 <TextView
+                     android:layout_width="match_parent"
+                     android:layout_height="wrap_content"
+                     android:text="Precio: $119.99"
+                     android:textSize="14sp"
+                     android:textColor="@android:color/holo_green_dark" />
+
+                 <!-- Toggle para Stock -->
+                 <Switch
+                     android:id="@+id/toggle_psu"
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:layout_marginTop="8dp"
+                     android:text="Disponible" />
+             </LinearLayout>
 
             <Button
                 android:id="@+id/btn_save_changes"

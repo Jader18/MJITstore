@@ -73,6 +73,7 @@ class LoginFragment : Fragment() {
             findNavController().navigate(R.id.deMenuaAdmin, null, navOptions)
 
 
+
         }else{
             Toast.makeText(context, "Login failed", Toast.LENGTH_SHORT).show()
 

@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.CheckBox
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.mjitstore.databinding.FragmentCatalogBinding
@@ -26,43 +27,42 @@ class CatalogFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // Verificar si los productos están en stock y mostrar/ocultar CheckBoxes
-        binding.checkboxCpu.visibility = if (isProductInStock("cpu")) View.VISIBLE else View.GONE
-        binding.checkboxRam.visibility = if (isProductInStock("ram")) View.VISIBLE else View.GONE
-        binding.checkboxGpu.visibility = if (isProductInStock("gpu")) View.VISIBLE else View.GONE
-        binding.checkboxSsd.visibility = if (isProductInStock("ssd")) View.VISIBLE else View.GONE
-        binding.checkboxKeyboard.visibility = if (isProductInStock("keyboard")) View.VISIBLE else View.GONE
-        binding.checkboxMouse.visibility = if (isProductInStock("mouse")) View.VISIBLE else View.GONE
-        binding.checkboxHeadphones.visibility = if (isProductInStock("headphones")) View.VISIBLE else View.GONE
-        binding.checkboxUsb.visibility = if (isProductInStock("usb")) View.VISIBLE else View.GONE
-        binding.checkboxMonitor.visibility = if (isProductInStock("monitor")) View.VISIBLE else View.GONE
-        binding.checkboxPsu.visibility = if (isProductInStock("psu")) View.VISIBLE else View.GONE
+        // Configurar visibilidad y estado de los CheckBoxes según el stock
+        configureCheckBox(binding.checkboxCpu, "cpu", "CPU Intel i7")
+        configureCheckBox(binding.checkboxRam, "ram", "RAM 16GB")
+        configureCheckBox(binding.checkboxGpu, "gpu", "GPU RTX 3060")
+        configureCheckBox(binding.checkboxSsd, "ssd", "SSD 1TB")
+        configureCheckBox(binding.checkboxKeyboard, "keyboard", "Teclado Mecánico RGB")
+        configureCheckBox(binding.checkboxMouse, "mouse", "Mouse Gaming 16000 DPI")
+        configureCheckBox(binding.checkboxHeadphones, "headphones", "Audífonos Inalámbricos")
+        configureCheckBox(binding.checkboxUsb, "usb", "USB 64GB")
+        configureCheckBox(binding.checkboxMonitor, "monitor", "Monitor 27 144Hz")
+        configureCheckBox(binding.checkboxPsu, "psu", "Fuente de Poder 650W")
 
         // Acción al presionar el botón para enviar al WhatsApp
         binding.btnSendToWhatsapp.setOnClickListener {
             val selectedProducts = mutableListOf<String>()
 
             // Verificar qué productos están seleccionados
-            if (binding.checkboxCpu.isChecked) selectedProducts.add("CPU Intel i7")
-            if (binding.checkboxRam.isChecked) selectedProducts.add("RAM 16GB")
-            if (binding.checkboxGpu.isChecked) selectedProducts.add("GPU RTX 3060")
-            if (binding.checkboxSsd.isChecked) selectedProducts.add("SSD 1TB")
-            if (binding.checkboxKeyboard.isChecked) selectedProducts.add("Teclado Mecánico RGB")
-            if (binding.checkboxMouse.isChecked) selectedProducts.add("Mouse Gaming 16000 DPI")
-            if (binding.checkboxHeadphones.isChecked) selectedProducts.add("Audífonos Inalámbricos")
-            if (binding.checkboxUsb.isChecked) selectedProducts.add("USB 64GB")
-            if (binding.checkboxMonitor.isChecked) selectedProducts.add("Monitor 27\" 144Hz")
-            if (binding.checkboxPsu.isChecked) selectedProducts.add("Fuente de Poder 650W")
+            if (binding.checkboxCpu.isChecked && binding.checkboxCpu.isEnabled) selectedProducts.add("CPU Intel i7")
+            if (binding.checkboxRam.isChecked && binding.checkboxRam.isEnabled) selectedProducts.add("RAM 16GB")
+            if (binding.checkboxGpu.isChecked && binding.checkboxGpu.isEnabled) selectedProducts.add("GPU RTX 3060")
+            if (binding.checkboxSsd.isChecked && binding.checkboxSsd.isEnabled) selectedProducts.add("SSD 1TB")
+            if (binding.checkboxKeyboard.isChecked && binding.checkboxKeyboard.isEnabled) selectedProducts.add("Teclado Mecánico RGB")
+            if (binding.checkboxMouse.isChecked && binding.checkboxMouse.isEnabled) selectedProducts.add("Mouse Gaming 16000 DPI")
+            if (binding.checkboxHeadphones.isChecked && binding.checkboxHeadphones.isEnabled) selectedProducts.add("Audífonos Inalámbricos")
+            if (binding.checkboxUsb.isChecked && binding.checkboxUsb.isEnabled) selectedProducts.add("USB 64GB")
+            if (binding.checkboxMonitor.isChecked && binding.checkboxMonitor.isEnabled) selectedProducts.add("Monitor 27 144Hz")
+            if (binding.checkboxPsu.isChecked && binding.checkboxPsu.isEnabled) selectedProducts.add("Fuente de Poder 650W")
 
             if (selectedProducts.isNotEmpty()) {
                 val message = "Hola MJITStore, quisiera comprar los siguientes productos:\n" + selectedProducts.joinToString("\n")
-                val phoneNumber = "+50576571646" // Número de teléfono de WhatsApp
+                val phoneNumber = "+50576571646"
                 val url = "https://wa.me/$phoneNumber?text=${Uri.encode(message)}"
 
                 val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
                 intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
 
-                // Verificar si WhatsApp está instalado
                 val packageManager = requireActivity().packageManager
                 val activities = packageManager.queryIntentActivities(intent, PackageManager.MATCH_DEFAULT_ONLY)
                 if (activities.isNotEmpty()) {
@@ -71,30 +71,51 @@ class CatalogFragment : Fragment() {
                     Toast.makeText(requireContext(), "WhatsApp no está instalado", Toast.LENGTH_SHORT).show()
                 }
             } else {
-                Toast.makeText(requireContext(), "Selecciona al menos un producto", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), "Selecciona al menos un producto en stock", Toast.LENGTH_SHORT).show()
             }
         }
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
-    }
-
-    // Simulación de la función que verifica si el producto está en stock
-    private fun isProductInStock(product: String): Boolean {
-        return when (product) {
-            "cpu" -> true
-            "ram" -> true
-            "gpu" -> true
-            "ssd" -> true
-            "keyboard" -> true
-            "mouse" -> true
-            "headphones" -> true
-            "usb" -> true
-            "monitor" -> true
-            "psu" -> true
-            else -> false
+    // Función auxiliar para configurar los CheckBoxes
+    private fun configureCheckBox(checkBox: CheckBox, productKey: String, productName: String) {
+        val inStock = StockManager.isProductInStock(productKey)
+        checkBox.visibility = View.VISIBLE
+        if (inStock) {
+            checkBox.text = productName
+            checkBox.isEnabled = true
+        } else {
+            checkBox.text = "$productName (Out of Stock)"
+            checkBox.isEnabled = false
+            checkBox.isChecked = false
         }
     }
+
+    // Clase pública dentro de CatalogFragment usando companion object
+    companion object StockManager {
+        private val stockMap = mutableMapOf(
+            "cpu" to true,
+            "ram" to true,
+            "gpu" to true,
+            "ssd" to true,
+            "keyboard" to true,
+            "mouse" to true,
+            "headphones" to true,
+            "usb" to true,
+            "monitor" to true,
+            "psu" to true
+        )
+
+        fun isProductInStock(product: String): Boolean {
+            return stockMap[product] ?: false
+        }
+
+        fun setProductStock(product: String, inStock: Boolean) {
+            stockMap[product] = inStock
+        }
+
+        fun getAllStock(): Map<String, Boolean> {
+            return stockMap.toMap()
+        }
+    }
+
 }
