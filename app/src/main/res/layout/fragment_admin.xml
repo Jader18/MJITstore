@@ -3,43 +3,45 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="CatalogFragment">
+    <!-- should be AdminFragment once completed-->
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="16dp">
+     <ScrollView
+         android:layout_width="match_parent"
+         android:layout_height="match_parent"
+         android:padding="16dp">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+         <LinearLayout
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:orientation="vertical">
 
-            <!-- Título del catálogo -->
+             <!-- Título del catálogo -->
             <TextView
+
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingBottom="16dp"
                 android:text="Catálogo de Hardware"
                 android:textSize="24sp"
-                android:textStyle="bold"
-                android:gravity="center"
-                android:paddingBottom="16dp" />
+                android:textStyle="bold" />
 
-            <!-- Elemento 1: CPU -->
+            <!-- Producto 1: CPU -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
+                android:layout_marginBottom="8dp"
                 android:background="@android:color/white"
                 android:elevation="2dp"
-                android:padding="8dp"
-                android:layout_marginBottom="8dp">
+                android:orientation="vertical"
+                android:padding="8dp">
 
                 <ImageView
                     android:layout_width="100dp"
                     android:layout_height="100dp"
-                    android:src="@drawable/logo_cpu"
                     android:layout_gravity="center"
-                    android:contentDescription="@string/cpu_image" />
+                    android:contentDescription="@string/cpu_image"
+                    android:src="@drawable/logo_cpu" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -52,40 +54,40 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Procesador de 8 núcleos, 3.6 GHz"
-                    android:textSize="14sp"
-                    tools:ignore="InvalidId" />
+                    android:textSize="14sp" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Precio: $299.99"
-                    android:textSize="14sp"
-                    android:textColor="@android:color/holo_green_dark" />
+                    android:textColor="@android:color/holo_green_dark"
+                    android:textSize="14sp" />
 
-                <CheckBox
-                    android:id="@+id/checkbox_cpu"
+                <!-- Toggle para Stock -->
+                <Switch
+                    android:id="@+id/toggle_cpu"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Seleccionar"
-                    android:layout_marginTop="8dp" />
+                    android:layout_marginTop="8dp"
+                    android:text="Disponible" />
             </LinearLayout>
 
-            <!-- Elemento 2: RAM -->
+            <!-- Producto 2: RAM -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
+                android:layout_marginBottom="8dp"
                 android:background="@android:color/white"
                 android:elevation="2dp"
-                android:padding="8dp"
-                android:layout_marginBottom="8dp">
+                android:orientation="vertical"
+                android:padding="8dp">
 
                 <ImageView
                     android:layout_width="100dp"
                     android:layout_height="100dp"
-                    android:src="@drawable/logo_ram"
                     android:layout_gravity="center"
-                    android:contentDescription="@string/logo_ram" />
+                    android:contentDescription="@string/logo_ram"
+                    android:src="@drawable/logo_ram" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -104,33 +106,34 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Precio: $79.99"
-                    android:textSize="14sp"
-                    android:textColor="@android:color/holo_green_dark" />
+                    android:textColor="@android:color/holo_green_dark"
+                    android:textSize="14sp" />
 
-                <CheckBox
-                    android:id="@+id/checkbox_ram"
+                <!-- Toggle para Stock -->
+                <Switch
+                    android:id="@+id/toggle_ram"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Seleccionar"
-                    android:layout_marginTop="8dp" />
+                    android:layout_marginTop="8dp"
+                    android:text="Disponible" />
             </LinearLayout>
 
-            <!-- Elemento 3: GPU -->
+            <!-- Producto 3: GPU -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
+                android:layout_marginBottom="8dp"
                 android:background="@android:color/white"
                 android:elevation="2dp"
-                android:padding="8dp"
-                android:layout_marginBottom="8dp">
+                android:orientation="vertical"
+                android:padding="8dp">
 
                 <ImageView
                     android:layout_width="100dp"
                     android:layout_height="100dp"
-                    android:src="@drawable/logo_gpu"
                     android:layout_gravity="center"
-                    android:contentDescription="@string/logo_gpu" />
+                    android:contentDescription="@string/logo_gpu"
+                    android:src="@drawable/logo_gpu" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -149,33 +152,34 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Precio: $399.99"
-                    android:textSize="14sp"
-                    android:textColor="@android:color/holo_green_dark" />
+                    android:textColor="@android:color/holo_green_dark"
+                    android:textSize="14sp" />
 
-                <CheckBox
-                    android:id="@+id/checkbox_gpu"
+                <!-- Toggle para Stock -->
+                <Switch
+                    android:id="@+id/toggle_gpu"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Seleccionar"
-                    android:layout_marginTop="8dp" />
+                    android:layout_marginTop="8dp"
+                    android:text="Disponible" />
             </LinearLayout>
 
-            <!-- Elemento 4: SSD -->
+            <!-- Producto 4: SSD -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
+                android:layout_marginBottom="8dp"
                 android:background="@android:color/white"
                 android:elevation="2dp"
-                android:padding="8dp"
-                android:layout_marginBottom="8dp">
+                android:orientation="vertical"
+                android:padding="8dp">
 
                 <ImageView
                     android:layout_width="100dp"
                     android:layout_height="100dp"
-                    android:src="@drawable/logo_ssd"
                     android:layout_gravity="center"
-                    android:contentDescription="@string/logo_ssd" />
+                    android:contentDescription="@string/logo_ssd"
+                    android:src="@drawable/logo_ssd" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -194,33 +198,34 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Precio: $129.99"
-                    android:textSize="14sp"
-                    android:textColor="@android:color/holo_green_dark" />
+                    android:textColor="@android:color/holo_green_dark"
+                    android:textSize="14sp" />
 
-                <CheckBox
-                    android:id="@+id/checkbox_ssd"
+                <!-- Toggle para Stock -->
+                <Switch
+                    android:id="@+id/toggle_ssd"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Seleccionar"
-                    android:layout_marginTop="8dp" />
+                    android:layout_marginTop="8dp"
+                    android:text="Disponible" />
             </LinearLayout>
 
-            <!-- Elemento 5: Teclado -->
+            <!-- Producto 5: Teclado -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
+                android:layout_marginBottom="8dp"
                 android:background="@android:color/white"
                 android:elevation="2dp"
-                android:padding="8dp"
-                android:layout_marginBottom="8dp">
+                android:orientation="vertical"
+                android:padding="8dp">
 
                 <ImageView
                     android:layout_width="100dp"
                     android:layout_height="100dp"
-                    android:src="@drawable/logo_keyboard"
                     android:layout_gravity="center"
-                    android:contentDescription="@string/logo_keyboard" />
+                    android:contentDescription="@string/logo_keyboard"
+                    android:src="@drawable/logo_keyboard" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -239,33 +244,34 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Precio: $99.99"
-                    android:textSize="14sp"
-                    android:textColor="@android:color/holo_green_dark" />
+                    android:textColor="@android:color/holo_green_dark"
+                    android:textSize="14sp" />
 
-                <CheckBox
-                    android:id="@+id/checkbox_keyboard"
+                <!-- Toggle para Stock -->
+                <Switch
+                    android:id="@+id/toggle_keyboard"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Seleccionar"
-                    android:layout_marginTop="8dp" />
+                    android:layout_marginTop="8dp"
+                    android:text="Disponible" />
             </LinearLayout>
 
-            <!-- Elemento 6: Mouse -->
+            <!-- Producto 6: Mouse -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
+                android:layout_marginBottom="8dp"
                 android:background="@android:color/white"
                 android:elevation="2dp"
-                android:padding="8dp"
-                android:layout_marginBottom="8dp">
+                android:orientation="vertical"
+                android:padding="8dp">
 
                 <ImageView
                     android:layout_width="100dp"
                     android:layout_height="100dp"
-                    android:src="@drawable/logo_mouse"
                     android:layout_gravity="center"
-                    android:contentDescription="@string/logo_mouse" />
+                    android:contentDescription="@string/logo_mouse"
+                    android:src="@drawable/logo_mouse" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -284,33 +290,34 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Precio: $59.99"
-                    android:textSize="14sp"
-                    android:textColor="@android:color/holo_green_dark" />
+                    android:textColor="@android:color/holo_green_dark"
+                    android:textSize="14sp" />
 
-                <CheckBox
-                    android:id="@+id/checkbox_mouse"
+                <!-- Toggle para Stock -->
+                <Switch
+                    android:id="@+id/toggle_mouse"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Seleccionar"
-                    android:layout_marginTop="8dp" />
+                    android:layout_marginTop="8dp"
+                    android:text="Disponible" />
             </LinearLayout>
 
-            <!-- Elemento 7: Audífonos -->
+            <!-- Producto 7: Audífonos -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
+                android:layout_marginBottom="8dp"
                 android:background="@android:color/white"
                 android:elevation="2dp"
-                android:padding="8dp"
-                android:layout_marginBottom="8dp">
+                android:orientation="vertical"
+                android:padding="8dp">
 
                 <ImageView
                     android:layout_width="100dp"
                     android:layout_height="100dp"
-                    android:src="@drawable/logo_headphones"
                     android:layout_gravity="center"
-                    android:contentDescription="@string/logo_headphones" />
+                    android:contentDescription="@string/logo_headphones"
+                    android:src="@drawable/logo_headphones" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -322,47 +329,86 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Cancelación de ruido, 20h batería"
+                    android:text="Sonido envolvente 7.1"
                     android:textSize="14sp" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Precio: $89.99"
-                    android:textSize="14sp"
-                    android:textColor="@android:color/holo_green_dark" />
+                    android:text="Precio: $79.99"
+                    android:textColor="@android:color/holo_green_dark"
+                    android:textSize="14sp" />
 
-                <CheckBox
-                    android:id="@+id/checkbox_headphones"
+                <!-- Toggle para Stock -->
+                <Switch
+                    android:id="@+id/toggle_headphones"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Seleccionar"
-                    android:layout_marginTop="8dp" />
+                    android:layout_marginTop="8dp"
+                    android:text="Disponible" />
             </LinearLayout>
 
-            <!-- Elemento 8: USB -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
+                android:layout_marginBottom="8dp"
                 android:background="@android:color/white"
                 android:elevation="2dp"
-                android:padding="8dp"
-                android:layout_marginBottom="8dp">
+                android:orientation="vertical"
+                android:padding="8dp">
 
                 <ImageView
                     android:layout_width="100dp"
                     android:layout_height="100dp"
-                    android:src="@drawable/logo_usb"
                     android:layout_gravity="center"
-                    android:contentDescription="@string/logo_usb" />
+                    android:contentDescription="@string/logo_gpu"
+                    android:src="@drawable/logo_gpu" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="USB 64GB"
+                    android:text="Case ATX RGB"
                     android:textSize="18sp"
                     android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Compatible con ATX"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Precio: $79.99"
+                    android:textColor="@android:color/holo_green_dark"
+                    android:textSize="14sp" />
+
+                <!-- Toggle para Stock -->
+                <Switch
+                    android:id="@+id/toggle_case"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="Disponible" />
+            </LinearLayout>
+
+            <!-- Producto 8: Monitor -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:background="@android:color/white"
+                android:elevation="2dp"
+                android:orientation="vertical"
+                android:padding="8dp">
+
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_gravity="center"
+                    android:contentDescription="@string/logo_usb"
+                    android:src="@drawable/logo_usb" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -374,114 +420,75 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Precio: $19.99"
-                    android:textSize="14sp"
-                    android:textColor="@android:color/holo_green_dark" />
+                    android:textColor="@android:color/holo_green_dark"
+                    android:textSize="14sp" />
 
-                <CheckBox
-                    android:id="@+id/checkbox_usb"
+                <!-- Toggle para Stock -->
+                <Switch
+                    android:id="@+id/toggle_monitor"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Seleccionar"
-                    android:layout_marginTop="8dp" />
+                    android:layout_marginTop="8dp"
+                    android:text="Disponible" />
             </LinearLayout>
 
-            <!-- Elemento 9: Monitor -->
+            <!-- Producto 9: Fuente de poder -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
+                android:layout_marginBottom="8dp"
                 android:background="@android:color/white"
                 android:elevation="2dp"
-                android:padding="8dp"
-                android:layout_marginBottom="8dp">
+                android:orientation="vertical"
+                android:padding="8dp">
 
                 <ImageView
                     android:layout_width="100dp"
                     android:layout_height="100dp"
-                    android:src="@drawable/logo_monitor"
                     android:layout_gravity="center"
-                    android:contentDescription="@string/logo_monitor" />
+                    android:contentDescription="@string/logo_psu"
+                    android:src="@drawable/logo_psu" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Monitor 27 144Hz"
+                    android:text="Fuente de poder 750W"
                     android:textSize="18sp"
                     android:textStyle="bold" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Resolución 2560x1440"
+                    android:text="Certificación 80+ Gold"
                     android:textSize="14sp" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Precio: $249.99"
-                    android:textSize="14sp"
-                    android:textColor="@android:color/holo_green_dark" />
-
-                <CheckBox
-                    android:id="@+id/checkbox_monitor"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Seleccionar"
-                    android:layout_marginTop="8dp" />
-            </LinearLayout>
-
-            <!-- Elemento 10: Fuente de Poder -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:background="@android:color/white"
-                android:elevation="2dp"
-                android:padding="8dp"
-                android:layout_marginBottom="8dp">
-
-                <ImageView
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:src="@drawable/logo_psu"
-                    android:layout_gravity="center"
-                    android:contentDescription="@string/logo_psu" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Fuente de Poder 650W"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="80 Plus Gold, modular"
+                    android:text="Precio: $129.99"
+                    android:textColor="@android:color/holo_green_dark"
                     android:textSize="14sp" />
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Precio: $119.99"
-                    android:textSize="14sp"
-                    android:textColor="@android:color/holo_green_dark" />
-
-                <CheckBox
-                    android:id="@+id/checkbox_psu"
+                <!-- Toggle para Stock -->
+                <Switch
+                    android:id="@+id/toggle_psu"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Seleccionar"
-                    android:layout_marginTop="8dp" />
+                    android:layout_marginTop="8dp"
+                    android:text="Disponible" />
             </LinearLayout>
 
-            <!-- Botón para enviar selección al WhatsApp -->
+            <!-- Producto 10: Case -->
+
             <Button
-                android:id="@+id/btn_send_to_whatsapp"
+                android:id="@+id/btn_save_changes"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Enviar selección a WhatsApp"
-                android:layout_marginTop="16dp" />
+                android:layout_marginTop="16dp"
+                android:background="#673AB7"
+                android:text="Guardar"
+                android:textColor="@android:color/white"
+                android:textSize="16sp" />
         </LinearLayout>
     </ScrollView>
 </FrameLayout>

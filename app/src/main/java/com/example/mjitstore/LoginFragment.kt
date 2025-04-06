@@ -70,7 +70,8 @@ class LoginFragment : Fragment() {
 
         if (user == "admin" && password == "admin"){
             Toast.makeText(context, "Login succes", Toast.LENGTH_SHORT).show()
-            findNavController().navigate(R.id.deLoginaMenu,null, navOptions)
+            findNavController().navigate(R.id.deMenuaAdmin, null, navOptions)
+
 
         }else{
             Toast.makeText(context, "Login failed", Toast.LENGTH_SHORT).show()

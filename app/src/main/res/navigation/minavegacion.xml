@@ -13,6 +13,9 @@
         <action
             android:id="@+id/deLoginaMenu"
             app:destination="@id/mainMenuFragment" />
+        <action
+            android:id="@+id/deMenuaAdmin"
+            app:destination="@id/adminFragment" />
     </fragment>
     <fragment
         android:id="@+id/mainMenuFragment"
@@ -43,4 +46,9 @@
         android:name="com.example.mjitstore.CatalogFragment"
         android:label="fragment_catalog"
         tools:layout="@layout/fragment_catalog" />
+    <fragment
+        android:id="@+id/adminFragment"
+        android:name="com.example.mjitstore.AdminFragment"
+        android:label="fragment_admin"
+        tools:layout="@layout/fragment_admin" />
 </navigation>

@@ -2,4 +2,15 @@
     <string name="app_name">MJITstore</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="cpu_image">CPU Image</string>
+    <string name="logo_ram">Logo RAM</string>
+    <string name="logo_gpu">Logo GPU</string>
+    <string name="logo_ssd">Logo SSD</string>
+    <string name="logo_keyboard">Logo KEYBOARD</string>
+    <string name="logo_mouse">Logo MOUSE</string>
+    <string name="logo_headphones">Logo HEADPHONES</string>
+    <string name="logo_usb">Logo USB</string>
+    <string name="logo_monitor">Logo MONITOR</string>
+    <string name="logo_psu">Logo PSU</string>
+
 </resources>

@@ -18,7 +18,7 @@
         android:layout_gravity="center"
         android:layout_marginTop="5dp"
         android:gravity="center"
-        android:text="BIENVENIDO!!"
+        android:text="BIENVENIDO!"
         android:shadowColor="#000000"
         android:shadowRadius="3"
         android:shadowDx="2"
@@ -90,21 +90,22 @@
         android:background="@drawable/btn_ripple"
         android:gravity="center"
         android:padding="10dp"
-        android:text="iniciar sesion" />
+        android:text="iniciar sesion (admin)"
+        android:textSize="15sp"
+        />
 
 
     <Button
         android:id="@+id/bGuess"
-        android:layout_width="139dp"
-        android:layout_height="41dp"
-        android:layout_gravity="end"
-        android:layout_marginTop="70dp"
-        android:layout_marginEnd="5dp"
+        android:layout_width="271dp"
+        android:layout_height="44dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
         android:background="@drawable/btn_ripple"
         android:gravity="center"
         android:padding="10dp"
-        android:text="Continue as guess"
-        android:textSize="10sp" />
+        android:text="Continuar como cliente"
+        android:textSize="15sp" />
 
 
 </LinearLayout>

@@ -1,55 +1,94 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainMenuFragment"
-    android:orientation="vertical"
-    android:gravity="center"
-    android:background="#FCFCFC">
+    android:background="#FCFCFC"
+    tools:context=".MainMenuFragment">
 
-    <Button
-        android:id="@+id/bBack"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="top"
-        android:layout_marginStart="5dp"
-        android:background="@drawable/btn_ripple"
+        android:orientation="vertical"
         android:gravity="center"
-        android:padding="10dp"
-        android:text="Volver"
-        android:textSize="10sp" />
+        android:paddingBottom="30dp">
 
-    <ImageView
-        android:id="@+id/ivLogoMenu"
-        android:layout_width="399dp"
-        android:layout_height="458dp"
-        android:layout_marginVertical="3dp"
-        android:layout_marginTop="16dp"
-        android:src="@drawable/logostore" />
+        <Button
+            android:id="@+id/bBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top"
+            android:layout_marginStart="5dp"
+            android:background="@drawable/btn_ripple"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="Volver"
 
-    <Button
-        android:id="@+id/btnCatalogo"
-        android:layout_width="313dp"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="30dp"
-        android:layout_marginTop="0dp"
-        android:background="@drawable/btn_ripple"
-        android:padding="10dp"
-        android:text="Catalogo"
+            android:textSize="10sp" />
 
+        <ImageView
+            android:id="@+id/ivLogoMenu"
+            android:layout_width="399dp"
+            android:layout_height="458dp"
+            android:layout_marginTop="16dp"
+            android:src="@drawable/logostore" />
 
-        />
+        <Button
+            android:id="@+id/btnCatalogo"
+            android:layout_width="313dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0dp"
+            android:background="@drawable/btn_ripple"
+            android:padding="10dp"
+            android:text="Catálogo" />
 
-    <Button
-        android:id="@+id/btnAbout"
-        android:layout_width="313dp"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="30dp"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/btn_ripple"
-        android:padding="10dp"
-        android:text="Acerca de" />
+        <Button
+            android:id="@+id/btnAbout"
+            android:layout_width="313dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/btn_ripple"
+            android:padding="10dp"
+            android:text="Acerca de" />
 
+        <!-- Sección Contáctanos -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="30dp"
+            android:padding="16dp"
+            android:background="#EEEEEE"
+            android:gravity="center">
 
-</LinearLayout>
+            <TextView
+                android:id="@+id/tvContactanos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Contáctanos"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:textColor="#000000"
+                android:paddingBottom="10dp" />
+
+            <TextView
+                android:id="@+id/tvTelefono"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Teléfono: 8888-8888"
+                android:textSize="14sp"
+                android:textColor="#333333"
+                android:paddingBottom="4dp" />
+
+            <TextView
+                android:id="@+id/tvEmail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Email: mjitstore@gmail.com"
+                android:textSize="14sp"
+                android:textColor="#333333" />
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>
