@@ -40,6 +40,7 @@ class CatalogFragment : Fragment() {
         configureCheckBox(binding.checkboxUsb, "usb", "USB 64GB")
         configureCheckBox(binding.checkboxMonitor, "monitor", "Monitor 27 144Hz")
         configureCheckBox(binding.checkboxPsu, "psu", "Fuente de Poder 650W")
+        configureCheckBox(binding.checkboxHdd, "hdd", "Disco Duro HDD")
 
         // Mapa de categorías y sus layouts correspondientes
         val categoryMap = mapOf(
@@ -53,12 +54,13 @@ class CatalogFragment : Fragment() {
                 binding.checkboxHeadphones.parent as ViewGroup,
                 binding.checkboxUsb.parent as ViewGroup,
                 binding.checkboxMonitor.parent as ViewGroup,
-                binding.checkboxPsu.parent as ViewGroup
+                binding.checkboxPsu.parent as ViewGroup,
+                binding.checkboxHdd.parent as ViewGroup
             ),
             "Procesadores" to listOf(binding.checkboxCpu.parent as ViewGroup),
             "RAM" to listOf(binding.checkboxRam.parent as ViewGroup),
             "GPU" to listOf(binding.checkboxGpu.parent as ViewGroup),
-            "Almacenamiento" to listOf(binding.checkboxSsd.parent as ViewGroup, binding.checkboxUsb.parent as ViewGroup),
+            "Almacenamiento" to listOf(binding.checkboxSsd.parent as ViewGroup, binding.checkboxUsb.parent as ViewGroup, binding.checkboxHdd.parent as ViewGroup),
             "Periféricos" to listOf(
                 binding.checkboxKeyboard.parent as ViewGroup,
                 binding.checkboxMouse.parent as ViewGroup,
@@ -95,6 +97,7 @@ class CatalogFragment : Fragment() {
             if (binding.checkboxRam.isChecked && binding.checkboxRam.isEnabled) selectedProducts.add("RAM 16GB")
             if (binding.checkboxGpu.isChecked && binding.checkboxGpu.isEnabled) selectedProducts.add("GPU RTX 3060")
             if (binding.checkboxSsd.isChecked && binding.checkboxSsd.isEnabled) selectedProducts.add("SSD 1TB")
+            if (binding.checkboxHdd.isChecked && binding.checkboxHdd.isEnabled) selectedProducts.add("HDD 1TB")
             if (binding.checkboxKeyboard.isChecked && binding.checkboxKeyboard.isEnabled) selectedProducts.add("Teclado Mecánico RGB")
             if (binding.checkboxMouse.isChecked && binding.checkboxMouse.isEnabled) selectedProducts.add("Mouse Gaming 16000 DPI")
             if (binding.checkboxHeadphones.isChecked && binding.checkboxHeadphones.isEnabled) selectedProducts.add("Audífonos Inalámbricos")

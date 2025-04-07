@@ -1,6 +1,8 @@
 package com.example.mjitstore
 
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -34,6 +36,7 @@ class AdminFragment : Fragment() {
         binding.toggleUsb.isChecked = CatalogFragment.StockManager.isProductInStock("usb")
         binding.toggleMonitor.isChecked = CatalogFragment.StockManager.isProductInStock("monitor")
         binding.togglePsu.isChecked = CatalogFragment.StockManager.isProductInStock("psu")
+        binding.toggleHdd.isChecked = CatalogFragment.StockManager.isProductInStock("hdd")
 
         // Configurar listeners para cada Switch
         binding.toggleCpu.setOnCheckedChangeListener { _, isChecked ->
@@ -66,10 +69,50 @@ class AdminFragment : Fragment() {
         binding.togglePsu.setOnCheckedChangeListener { _, isChecked ->
             CatalogFragment.StockManager.setProductStock("psu", isChecked)
         }
+        binding.toggleHdd.setOnCheckedChangeListener { _, isChecked ->
+            CatalogFragment.StockManager.setProductStock("hdd", isChecked)
+        }
+
+        // Mapa de productos y sus layouts
+        val productMap = mapOf(
+            "CPU Intel i7" to binding.toggleCpu.parent as ViewGroup,
+            "RAM 16GB" to binding.toggleRam.parent as ViewGroup,
+            "GPU RTX 3060" to binding.toggleGpu.parent as ViewGroup,
+            "SSD 1TB" to binding.toggleSsd.parent as ViewGroup,
+            "Teclado Mecánico RGB" to binding.toggleKeyboard.parent as ViewGroup,
+            "Mouse Gaming 16000 DPI" to binding.toggleMouse.parent as ViewGroup,
+            "Audífonos Inalámbricos" to binding.toggleHeadphones.parent as ViewGroup,
+            "USB 3.0, alta velocidad" to binding.toggleUsb.parent as ViewGroup,
+            "Monitor 27 144Hz" to binding.toggleMonitor.parent as ViewGroup,
+            "Fuente de Poder 650W" to binding.togglePsu.parent as ViewGroup,
+            "Disco Duro HDD" to binding.toggleHdd.parent as ViewGroup
+        )
+
+        // Configurar el buscador
+        binding.searchByName.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
+
+            override fun afterTextChanged(s: Editable?) {
+                val query = s.toString().trim().lowercase()
+                filterProducts(productMap, query)
+            }
+        })
 
         // Configurar el botón "Guardar"
         binding.btnSaveChanges.setOnClickListener {
             Toast.makeText(requireContext(), "Cambios guardados exitosamente", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    // Función para filtrar productos por nombre
+    private fun filterProducts(productMap: Map<String, ViewGroup>, query: String) {
+        productMap.forEach { (name, layout) ->
+            if (query.isEmpty() || name.lowercase().contains(query)) {
+                layout.visibility = View.VISIBLE
+            } else {
+                layout.visibility = View.GONE
+            }
         }
     }
 

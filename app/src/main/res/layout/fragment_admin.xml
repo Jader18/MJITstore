@@ -15,16 +15,32 @@
              android:layout_height="wrap_content"
              android:orientation="vertical">
 
-             <!-- Título del catálogo -->
-            <TextView
+             <LinearLayout
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:orientation="horizontal"
+                 android:gravity="center_vertical"
+                 android:paddingBottom="16dp">
 
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:paddingBottom="16dp"
-                android:text="Catálogo de Hardware"
-                android:textSize="24sp"
-                android:textStyle="bold" />
+                 <TextView
+                     android:layout_width="0dp"
+                     android:layout_weight="1"
+                     android:layout_height="wrap_content"
+                     android:text="Catálogo de Hardware"
+                     android:textSize="24sp"
+                     android:textStyle="bold"
+                     android:gravity="center" />
+
+                 <EditText
+                     android:id="@+id/search_by_name"
+                     android:layout_width="150dp"
+                     android:layout_height="wrap_content"
+                     android:hint="Buscar producto"
+                     android:textSize="14sp"
+                     android:padding="8dp"
+                     android:background="@android:drawable/edit_text"
+                     android:maxLines="1" />
+             </LinearLayout>
 
             <!-- Producto 1: CPU -->
             <LinearLayout
@@ -472,6 +488,52 @@
                  <!-- Toggle para Stock -->
                  <Switch
                      android:id="@+id/toggle_psu"
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:layout_marginTop="8dp"
+                     android:text="Disponible" />
+             </LinearLayout>
+
+             <!-- Producto 11: HDD -->
+             <LinearLayout
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:orientation="vertical"
+                 android:background="@android:color/white"
+                 android:elevation="2dp"
+                 android:padding="8dp"
+                 android:layout_marginBottom="8dp">
+
+                 <ImageView
+                     android:layout_width="100dp"
+                     android:layout_height="100dp"
+                     android:src="@drawable/logo_hdd"
+                     android:layout_gravity="center"
+                     android:contentDescription="@string/logo_hdd" />
+
+                 <TextView
+                     android:layout_width="match_parent"
+                     android:layout_height="wrap_content"
+                     android:text="Disco Duro HDD"
+                     android:textSize="18sp"
+                     android:textStyle="bold" />
+
+                 <TextView
+                     android:layout_width="match_parent"
+                     android:layout_height="wrap_content"
+                     android:text="HDD 1TB, mecanico"
+                     android:textSize="14sp" />
+
+                 <TextView
+                     android:layout_width="match_parent"
+                     android:layout_height="wrap_content"
+                     android:text="Precio: $59.99"
+                     android:textSize="14sp"
+                     android:textColor="@android:color/holo_green_dark" />
+
+                 <!-- Toggle para Stock -->
+                 <Switch
+                     android:id="@+id/toggle_hdd"
                      android:layout_width="wrap_content"
                      android:layout_height="wrap_content"
                      android:layout_marginTop="8dp"

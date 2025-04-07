@@ -12,5 +12,6 @@
     <string name="logo_usb">Logo USB</string>
     <string name="logo_monitor">Logo MONITOR</string>
     <string name="logo_psu">Logo PSU</string>
+    <string name="logo_hdd">Logo HDD</string>
 
 </resources>
