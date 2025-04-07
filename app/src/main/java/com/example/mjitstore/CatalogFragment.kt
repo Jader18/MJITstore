@@ -106,18 +106,18 @@ class CatalogFragment : Fragment() {
             if (binding.checkboxPsu.isChecked && binding.checkboxPsu.isEnabled) selectedProducts.add("Fuente de Poder 650W")
 
             if (selectedProducts.isNotEmpty()) {
-                val message = "Hola MJITStore, quisiera comprar los siguientes productos:\n" + selectedProducts.joinToString("\n")
-                val phoneNumber = "+50576571646"
-                val url = "https://wa.me/$phoneNumber?text=${Uri.encode(message)}"
+                val message = "Hola MJITStore, quisiera comprar los siguientes productos:\n${selectedProducts.joinToString("\n")}"
+                val phoneNumber = "50576571646" // Sin "+"
 
-                val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
-                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
+                val intent = Intent(Intent.ACTION_SEND)
+                intent.type = "text/plain"
+                intent.setPackage("com.whatsapp")
+                intent.putExtra(Intent.EXTRA_TEXT, message)
+                intent.putExtra("jid", "$phoneNumber@s.whatsapp.net")
 
-                val packageManager = requireActivity().packageManager
-                val activities = packageManager.queryIntentActivities(intent, PackageManager.MATCH_DEFAULT_ONLY)
-                if (activities.isNotEmpty()) {
+                try {
                     startActivity(intent)
-                } else {
+                } catch (e: Exception) {
                     Toast.makeText(requireContext(), "WhatsApp no está instalado", Toast.LENGTH_SHORT).show()
                 }
             } else {
