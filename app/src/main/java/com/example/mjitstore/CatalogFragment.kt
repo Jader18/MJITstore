@@ -5,9 +5,11 @@ import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.CheckBox
+import android.widget.PopupMenu
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.mjitstore.databinding.FragmentCatalogBinding
@@ -39,11 +41,56 @@ class CatalogFragment : Fragment() {
         configureCheckBox(binding.checkboxMonitor, "monitor", "Monitor 27 144Hz")
         configureCheckBox(binding.checkboxPsu, "psu", "Fuente de Poder 650W")
 
+        // Mapa de categorías y sus layouts correspondientes
+        val categoryMap = mapOf(
+            "Todos" to listOf(
+                binding.checkboxCpu.parent as ViewGroup,
+                binding.checkboxRam.parent as ViewGroup,
+                binding.checkboxGpu.parent as ViewGroup,
+                binding.checkboxSsd.parent as ViewGroup,
+                binding.checkboxKeyboard.parent as ViewGroup,
+                binding.checkboxMouse.parent as ViewGroup,
+                binding.checkboxHeadphones.parent as ViewGroup,
+                binding.checkboxUsb.parent as ViewGroup,
+                binding.checkboxMonitor.parent as ViewGroup,
+                binding.checkboxPsu.parent as ViewGroup
+            ),
+            "Procesadores" to listOf(binding.checkboxCpu.parent as ViewGroup),
+            "RAM" to listOf(binding.checkboxRam.parent as ViewGroup),
+            "GPU" to listOf(binding.checkboxGpu.parent as ViewGroup),
+            "Almacenamiento" to listOf(binding.checkboxSsd.parent as ViewGroup, binding.checkboxUsb.parent as ViewGroup),
+            "Periféricos" to listOf(
+                binding.checkboxKeyboard.parent as ViewGroup,
+                binding.checkboxMouse.parent as ViewGroup,
+                binding.checkboxHeadphones.parent as ViewGroup,
+                binding.checkboxMonitor.parent as ViewGroup
+            ),
+            "Fuentes de Poder" to listOf(binding.checkboxPsu.parent as ViewGroup)
+        )
+
+        // Configurar el botón "Ordenar por"
+        binding.btnSortBy.setOnClickListener { view ->
+            val popup = PopupMenu(requireContext(), view)
+            popup.menu.add("Todos")
+            popup.menu.add("Procesadores")
+            popup.menu.add("RAM")
+            popup.menu.add("GPU")
+            popup.menu.add("Almacenamiento")
+            popup.menu.add("Periféricos")
+            popup.menu.add("Fuentes de Poder")
+
+            popup.setOnMenuItemClickListener { item: MenuItem ->
+                val selectedCategory = item.title.toString()
+                filterByCategory(categoryMap, selectedCategory)
+                true
+            }
+            popup.show()
+        }
+
         // Acción al presionar el botón para enviar al WhatsApp
         binding.btnSendToWhatsapp.setOnClickListener {
             val selectedProducts = mutableListOf<String>()
 
-            // Verificar qué productos están seleccionados
             if (binding.checkboxCpu.isChecked && binding.checkboxCpu.isEnabled) selectedProducts.add("CPU Intel i7")
             if (binding.checkboxRam.isChecked && binding.checkboxRam.isEnabled) selectedProducts.add("RAM 16GB")
             if (binding.checkboxGpu.isChecked && binding.checkboxGpu.isEnabled) selectedProducts.add("GPU RTX 3060")
@@ -76,7 +123,15 @@ class CatalogFragment : Fragment() {
         }
     }
 
-    // Función auxiliar para configurar los CheckBoxes
+    // Función para filtrar por categoría
+    private fun filterByCategory(categoryMap: Map<String, List<ViewGroup>>, category: String) {
+        // Ocultar todos los layouts primero
+        categoryMap.values.flatten().forEach { it.visibility = View.GONE }
+
+        // Mostrar solo los layouts de la categoría seleccionada
+        categoryMap[category]?.forEach { it.visibility = View.VISIBLE }
+    }
+
     private fun configureCheckBox(checkBox: CheckBox, productKey: String, productName: String) {
         val inStock = StockManager.isProductInStock(productKey)
         checkBox.visibility = View.VISIBLE
@@ -90,7 +145,6 @@ class CatalogFragment : Fragment() {
         }
     }
 
-    // Clase pública dentro de CatalogFragment usando companion object
     companion object StockManager {
         private val stockMap = mutableMapOf(
             "cpu" to true,
@@ -118,4 +172,8 @@ class CatalogFragment : Fragment() {
         }
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
 }
