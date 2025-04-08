@@ -52,8 +52,8 @@ class LoginFragment : Fragment() {
             validateUser(user, password)
 
         }
-        binding.bGuess.setOnClickListener{
-            findNavController().navigate(R.id.deLoginaMenu,null,navOptions)
+        binding.bGuess.setOnClickListener {
+            requireActivity().onBackPressedDispatcher.onBackPressed()
         }
     }
 

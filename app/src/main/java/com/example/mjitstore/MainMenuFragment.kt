@@ -29,8 +29,16 @@ class MainMenuFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         startApp()
-        view.findViewById<Button>(R.id.bBack).setOnClickListener {
-            requireActivity().onBackPressedDispatcher.onBackPressed()
+        val navOptions = NavOptions.Builder()
+            .setEnterAnim(R.anim.slide_in_right)
+            .setExitAnim(R.anim.slide_out_left)
+            .setPopEnterAnim(R.anim.slide_in_left)
+            .setPopExitAnim(R.anim.slide_out_right)
+            .setLaunchSingleTop(true)
+            .build()
+        binding.bBack.setOnClickListener{
+
+            findNavController().navigate(R.id.deMenuaLogin,null,navOptions)
         }
     }
 

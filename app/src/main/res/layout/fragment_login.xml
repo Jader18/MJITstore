@@ -97,14 +97,14 @@
 
     <Button
         android:id="@+id/bGuess"
-        android:layout_width="271dp"
-        android:layout_height="44dp"
+        android:layout_width="121dp"
+        android:layout_height="47dp"
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
         android:background="@drawable/btn_ripple"
         android:gravity="center"
         android:padding="10dp"
-        android:text="Continuar como cliente"
+        android:text="VOLVER"
         android:textSize="14sp" />
 
 
