@@ -37,6 +37,13 @@ class AdminFragment : Fragment() {
         binding.toggleMonitor.isChecked = CatalogFragment.StockManager.isProductInStock("monitor")
         binding.togglePsu.isChecked = CatalogFragment.StockManager.isProductInStock("psu")
         binding.toggleHdd.isChecked = CatalogFragment.StockManager.isProductInStock("hdd")
+        binding.toggle2060.isChecked = CatalogFragment.StockManager.isProductInStock("rtx2060")
+        binding.toggle1080.isChecked = CatalogFragment.StockManager.isProductInStock("gtx1080")
+        binding.toggleRam32.isChecked = CatalogFragment.StockManager.isProductInStock("Ram32")
+        binding.toggleRam8.isChecked = CatalogFragment.StockManager.isProductInStock("Ram8")
+        binding.toggleCorei9.isChecked = CatalogFragment.StockManager.isProductInStock("Corei9")
+        binding.toggleCorei5.isChecked = CatalogFragment.StockManager.isProductInStock("Corei5")
+        binding.toggleRtx5090.isChecked = CatalogFragment.StockManager.isProductInStock("Rtx5090")
 
         // Configurar listeners para cada Switch
         binding.toggleCpu.setOnCheckedChangeListener { _, isChecked ->
@@ -72,6 +79,27 @@ class AdminFragment : Fragment() {
         binding.toggleHdd.setOnCheckedChangeListener { _, isChecked ->
             CatalogFragment.StockManager.setProductStock("hdd", isChecked)
         }
+        binding.toggle2060.setOnCheckedChangeListener { _, isChecked ->
+            CatalogFragment.StockManager.setProductStock("rtx2060", isChecked)
+        }
+        binding.toggle1080.setOnCheckedChangeListener { _, isChecked ->
+            CatalogFragment.StockManager.setProductStock("gtx1080", isChecked)
+        }
+        binding.toggleRam32.setOnCheckedChangeListener { _, isChecked ->
+            CatalogFragment.StockManager.setProductStock("Ram32", isChecked)
+        }
+        binding.toggleRam8.setOnCheckedChangeListener { _, isChecked ->
+            CatalogFragment.StockManager.setProductStock("Ram8", isChecked)
+        }
+        binding.toggleCorei9.setOnCheckedChangeListener { _, isChecked ->
+            CatalogFragment.StockManager.setProductStock("Corei9", isChecked)
+        }
+        binding.toggleCorei5.setOnCheckedChangeListener { _, isChecked ->
+            CatalogFragment.StockManager.setProductStock("Corei5", isChecked)
+        }
+        binding.toggleRtx5090.setOnCheckedChangeListener { _, isChecked ->
+            CatalogFragment.StockManager.setProductStock("Rtx5090", isChecked)
+        }
 
         // Mapa de productos y sus layouts
         val productMap = mapOf(
@@ -85,7 +113,15 @@ class AdminFragment : Fragment() {
             "USB 3.0, alta velocidad" to binding.toggleUsb.parent as ViewGroup,
             "Monitor 27 144Hz" to binding.toggleMonitor.parent as ViewGroup,
             "Fuente de Poder 650W" to binding.togglePsu.parent as ViewGroup,
-            "Disco Duro HDD" to binding.toggleHdd.parent as ViewGroup
+            "Disco Duro HDD" to binding.toggleHdd.parent as ViewGroup,
+            "Gigabyte GeForce RTX 2060" to binding.toggle2060.parent as ViewGroup,
+            "MSI NVIDIA GeForce GTX 1080" to binding.toggle1080.parent as ViewGroup,
+            "DDR5 RAM 32 GB (2 x 16 GB)" to binding.toggleRam32.parent as ViewGroup,
+            "RAM DDR4 8GB (1x8GB)" to binding.toggleRam8.parent as ViewGroup,
+            "Intel® Core™ i9-14900KF" to binding.toggleCorei9.parent as ViewGroup,
+            "Intel® Core™ i5-14600KF" to binding.toggleCorei9.parent as ViewGroup,
+            "MSI GeForce RTX 5090 32G Gaming Trio OC" to binding.toggleRtx5090.parent as ViewGroup
+
         )
 
         // Configurar el buscador

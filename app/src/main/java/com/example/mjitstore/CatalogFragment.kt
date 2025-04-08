@@ -30,17 +30,24 @@ class CatalogFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         // Configurar visibilidad y estado de los CheckBoxes según el stock
-        configureCheckBox(binding.checkboxCpu, "cpu", "CPU Intel i7")
-        configureCheckBox(binding.checkboxRam, "ram", "RAM 16GB")
-        configureCheckBox(binding.checkboxGpu, "gpu", "GPU RTX 3060")
-        configureCheckBox(binding.checkboxSsd, "ssd", "SSD 1TB")
-        configureCheckBox(binding.checkboxKeyboard, "keyboard", "Teclado Mecánico RGB")
-        configureCheckBox(binding.checkboxMouse, "mouse", "Mouse Gaming 16000 DPI")
-        configureCheckBox(binding.checkboxHeadphones, "headphones", "Audífonos Inalámbricos")
-        configureCheckBox(binding.checkboxUsb, "usb", "USB 64GB")
-        configureCheckBox(binding.checkboxMonitor, "monitor", "Monitor 27 144Hz")
-        configureCheckBox(binding.checkboxPsu, "psu", "Fuente de Poder 650W")
-        configureCheckBox(binding.checkboxHdd, "hdd", "Disco Duro HDD")
+        configureCheckBox(binding.checkboxCpu, "cpu", "Seleccionar")
+        configureCheckBox(binding.checkboxRam, "ram", "Seleccionar")
+        configureCheckBox(binding.checkboxGpu, "gpu", "Seleccionar")
+        configureCheckBox(binding.checkboxSsd, "ssd", "Seleccionar")
+        configureCheckBox(binding.checkboxKeyboard, "keyboard", "Seleccionar")
+        configureCheckBox(binding.checkboxMouse, "mouse", "Seleccionar")
+        configureCheckBox(binding.checkboxHeadphones, "headphones", "Seleccionar")
+        configureCheckBox(binding.checkboxUsb, "usb", "Seleccionar")
+        configureCheckBox(binding.checkboxMonitor, "monitor", "Seleccionar")
+        configureCheckBox(binding.checkboxPsu, "psu", "Seleccionar")
+        configureCheckBox(binding.checkboxHdd, "hdd", "Seleccionar")
+        configureCheckBox(binding.checkbox2060, "rtx2060", "Seleccionar")
+        configureCheckBox(binding.checkbox1080, "gtx1080", "Seleccionar")
+        configureCheckBox(binding.checkboxRam32, "Ram32", "Seleccionar")
+        configureCheckBox(binding.checkboxRam8, "Ram8", "Seleccionar")
+        configureCheckBox(binding.checkboxCorei9, "Corei9", "Seleccionar")
+        configureCheckBox(binding.checkboxCorei5, "Corei5", "Seleccionar")
+        configureCheckBox(binding.checkboxRtx5090, "Rtx5090", "Seleccionar")
 
         // Mapa de categorías y sus layouts correspondientes
         val categoryMap = mapOf(
@@ -55,11 +62,18 @@ class CatalogFragment : Fragment() {
                 binding.checkboxUsb.parent as ViewGroup,
                 binding.checkboxMonitor.parent as ViewGroup,
                 binding.checkboxPsu.parent as ViewGroup,
-                binding.checkboxHdd.parent as ViewGroup
+                binding.checkboxHdd.parent as ViewGroup,
+                binding.checkbox2060.parent as ViewGroup,
+                binding.checkbox1080.parent as ViewGroup,
+                binding.checkboxRam32.parent as ViewGroup,
+                binding.checkboxRam8.parent as ViewGroup,
+                binding.checkboxCorei9.parent as ViewGroup,
+                binding.checkboxCorei5.parent as ViewGroup,
+                binding.checkboxRtx5090.parent as ViewGroup
             ),
-            "Procesadores" to listOf(binding.checkboxCpu.parent as ViewGroup),
-            "RAM" to listOf(binding.checkboxRam.parent as ViewGroup),
-            "GPU" to listOf(binding.checkboxGpu.parent as ViewGroup),
+            "Procesadores" to listOf(binding.checkboxCpu.parent as ViewGroup, binding.checkboxCorei9.parent as ViewGroup, binding.checkboxCorei5.parent as ViewGroup),
+            "RAM" to listOf(binding.checkboxRam.parent as ViewGroup, binding.checkboxRam32.parent as ViewGroup, binding.checkboxRam8.parent as ViewGroup),
+            "GPU" to listOf(binding.checkboxGpu.parent as ViewGroup, binding.checkbox2060.parent as ViewGroup, binding.checkbox1080.parent as ViewGroup, binding.checkboxRtx5090.parent as ViewGroup),
             "Almacenamiento" to listOf(binding.checkboxSsd.parent as ViewGroup, binding.checkboxUsb.parent as ViewGroup, binding.checkboxHdd.parent as ViewGroup),
             "Periféricos" to listOf(
                 binding.checkboxKeyboard.parent as ViewGroup,
@@ -104,6 +118,13 @@ class CatalogFragment : Fragment() {
             if (binding.checkboxUsb.isChecked && binding.checkboxUsb.isEnabled) selectedProducts.add("USB 64GB")
             if (binding.checkboxMonitor.isChecked && binding.checkboxMonitor.isEnabled) selectedProducts.add("Monitor 27 144Hz")
             if (binding.checkboxPsu.isChecked && binding.checkboxPsu.isEnabled) selectedProducts.add("Fuente de Poder 650W")
+            if (binding.checkbox2060.isChecked && binding.checkbox2060.isEnabled) selectedProducts.add("Gigabyte GeForce RTX 2060")
+            if (binding.checkbox1080.isChecked && binding.checkbox1080.isEnabled) selectedProducts.add("MSI NVIDIA GeForce GTX 1080")
+            if (binding.checkboxRam32.isChecked && binding.checkboxRam32.isEnabled) selectedProducts.add("DDR5 RAM 32 GB (2 x 16 GB)")
+            if (binding.checkboxRam8.isChecked && binding.checkboxRam8.isEnabled) selectedProducts.add("RAM DDR4 8GB (1x8GB)")
+            if (binding.checkboxCorei9.isChecked && binding.checkboxCorei9.isEnabled) selectedProducts.add("Intel® Core™ i9-14900KF")
+            if (binding.checkboxCorei5.isChecked && binding.checkboxCorei5.isEnabled) selectedProducts.add("Intel® Core™ i5-14600KF")
+            if (binding.checkboxRtx5090.isChecked && binding.checkboxRtx5090.isEnabled) selectedProducts.add("MSI GeForce RTX 5090 32G Gaming Trio OC")
 
             if (selectedProducts.isNotEmpty()) {
                 val message = "Hola MJITStore, quisiera comprar los siguientes productos:\n${selectedProducts.joinToString("\n")}"
@@ -159,7 +180,15 @@ class CatalogFragment : Fragment() {
             "headphones" to true,
             "usb" to true,
             "monitor" to true,
-            "psu" to true
+            "psu" to true,
+            "hdd" to true,
+            "rtx2060" to true,
+            "gtx1080" to true,
+            "Ram32" to true,
+            "Ram8" to true,
+            "Corei9" to true,
+            "Corei5" to true,
+            "Rtx5090" to true
         )
 
         fun isProductInStock(product: String): Boolean {

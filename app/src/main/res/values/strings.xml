@@ -13,5 +13,12 @@
     <string name="logo_monitor">Logo MONITOR</string>
     <string name="logo_psu">Logo PSU</string>
     <string name="logo_hdd">Logo HDD</string>
+    <string name="logo_gtx1080">LOGO GTX1080</string>
+    <string name="logo_rtx2060">LOGO RTX2060</string>
+    <string name="logo_ram32">LOGO RAM32</string>
+    <string name="logo_ram8">LOGO RAM 8</string>
+    <string name="logo_coreei9">LOGO COREI9</string>
+    <string name="logo_corei5">LOGO CORE I5</string>
+    <string name="logo_rtx5090">LOGO RTX5090</string>
 
 </resources>

@@ -5,42 +5,42 @@
     tools:context="CatalogFragment">
     <!-- should be AdminFragment once completed-->
 
-     <ScrollView
-         android:layout_width="match_parent"
-         android:layout_height="match_parent"
-         android:padding="16dp">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp">
 
-         <LinearLayout
-             android:layout_width="match_parent"
-             android:layout_height="wrap_content"
-             android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-             <LinearLayout
-                 android:layout_width="match_parent"
-                 android:layout_height="wrap_content"
-                 android:orientation="horizontal"
-                 android:gravity="center_vertical"
-                 android:paddingBottom="16dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingBottom="16dp">
 
-                 <TextView
-                     android:layout_width="0dp"
-                     android:layout_weight="1"
-                     android:layout_height="wrap_content"
-                     android:text="Catálogo de Hardware"
-                     android:textSize="24sp"
-                     android:textStyle="bold"
-                     android:gravity="center" />
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="Catálogo de Hardware"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    android:gravity="center" />
 
-                 <EditText
-                     android:id="@+id/search_by_name"
-                     android:layout_width="150dp"
-                     android:layout_height="wrap_content"
-                     android:hint="Buscar producto"
-                     android:textSize="14sp"
-                     android:padding="8dp"
-                     android:background="@android:drawable/edit_text"
-                     android:maxLines="1" />
-             </LinearLayout>
+                <EditText
+                    android:id="@+id/search_by_name"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:hint="Buscar producto"
+                    android:textSize="14sp"
+                    android:padding="8dp"
+                    android:background="@android:drawable/edit_text"
+                    android:maxLines="1" />
+            </LinearLayout>
 
             <!-- Producto 1: CPU -->
             <LinearLayout
@@ -121,7 +121,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Precio: $79.99"
+                    android:text="Precio: $39.99"
                     android:textColor="@android:color/holo_green_dark"
                     android:textSize="14sp" />
 
@@ -403,142 +403,466 @@
                     android:text="Disponible" />
             </LinearLayout>
 
-             <!-- Elemento 9: Monitor -->
-             <LinearLayout
-                 android:layout_width="match_parent"
-                 android:layout_height="wrap_content"
-                 android:orientation="vertical"
-                 android:background="@android:color/white"
-                 android:elevation="2dp"
-                 android:padding="8dp"
-                 android:layout_marginBottom="8dp">
+            <!-- Elemento 9: Monitor -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@android:color/white"
+                android:elevation="2dp"
+                android:padding="8dp"
+                android:layout_marginBottom="8dp">
 
-                 <ImageView
-                     android:layout_width="100dp"
-                     android:layout_height="100dp"
-                     android:src="@drawable/logo_monitor"
-                     android:layout_gravity="center"
-                     android:contentDescription="@string/logo_monitor" />
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:src="@drawable/logo_monitor"
+                    android:layout_gravity="center"
+                    android:contentDescription="@string/logo_monitor" />
 
-                 <TextView
-                     android:layout_width="match_parent"
-                     android:layout_height="wrap_content"
-                     android:text="Monitor 27 144Hz"
-                     android:textSize="18sp"
-                     android:textStyle="bold" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Monitor 27 144Hz"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
 
-                 <TextView
-                     android:layout_width="match_parent"
-                     android:layout_height="wrap_content"
-                     android:text="Resolución 2560x1440"
-                     android:textSize="14sp" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Resolución 2560x1440"
+                    android:textSize="14sp" />
 
-                 <TextView
-                     android:layout_width="match_parent"
-                     android:layout_height="wrap_content"
-                     android:text="Precio: $249.99"
-                     android:textSize="14sp"
-                     android:textColor="@android:color/holo_green_dark" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Precio: $249.99"
+                    android:textSize="14sp"
+                    android:textColor="@android:color/holo_green_dark" />
 
-                 <Switch
-                     android:id="@+id/toggle_monitor"
-                     android:layout_width="wrap_content"
-                     android:layout_height="wrap_content"
-                     android:layout_marginTop="8dp"
-                     android:text="Disponible" />
-             </LinearLayout>
+                <Switch
+                    android:id="@+id/toggle_monitor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="Disponible" />
+            </LinearLayout>
 
             <!-- Producto 10: PSU -->
-             <LinearLayout
-                 android:layout_width="match_parent"
-                 android:layout_height="wrap_content"
-                 android:orientation="vertical"
-                 android:background="@android:color/white"
-                 android:elevation="2dp"
-                 android:padding="8dp"
-                 android:layout_marginBottom="8dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@android:color/white"
+                android:elevation="2dp"
+                android:padding="8dp"
+                android:layout_marginBottom="8dp">
 
-                 <ImageView
-                     android:layout_width="100dp"
-                     android:layout_height="100dp"
-                     android:src="@drawable/logo_psu"
-                     android:layout_gravity="center"
-                     android:contentDescription="@string/logo_psu" />
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:src="@drawable/logo_psu"
+                    android:layout_gravity="center"
+                    android:contentDescription="@string/logo_psu" />
 
-                 <TextView
-                     android:layout_width="match_parent"
-                     android:layout_height="wrap_content"
-                     android:text="Fuente de Poder 650W"
-                     android:textSize="18sp"
-                     android:textStyle="bold" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Fuente de Poder 650W"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
 
-                 <TextView
-                     android:layout_width="match_parent"
-                     android:layout_height="wrap_content"
-                     android:text="80 Plus Gold, modular"
-                     android:textSize="14sp" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="80 Plus Gold, modular"
+                    android:textSize="14sp" />
 
-                 <TextView
-                     android:layout_width="match_parent"
-                     android:layout_height="wrap_content"
-                     android:text="Precio: $119.99"
-                     android:textSize="14sp"
-                     android:textColor="@android:color/holo_green_dark" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Precio: $119.99"
+                    android:textSize="14sp"
+                    android:textColor="@android:color/holo_green_dark" />
 
-                 <!-- Toggle para Stock -->
-                 <Switch
-                     android:id="@+id/toggle_psu"
-                     android:layout_width="wrap_content"
-                     android:layout_height="wrap_content"
-                     android:layout_marginTop="8dp"
-                     android:text="Disponible" />
-             </LinearLayout>
+                <!-- Toggle para Stock -->
+                <Switch
+                    android:id="@+id/toggle_psu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="Disponible" />
+            </LinearLayout>
 
-             <!-- Producto 11: HDD -->
-             <LinearLayout
-                 android:layout_width="match_parent"
-                 android:layout_height="wrap_content"
-                 android:orientation="vertical"
-                 android:background="@android:color/white"
-                 android:elevation="2dp"
-                 android:padding="8dp"
-                 android:layout_marginBottom="8dp">
+            <!-- Producto 11: HDD -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@android:color/white"
+                android:elevation="2dp"
+                android:padding="8dp"
+                android:layout_marginBottom="8dp">
 
-                 <ImageView
-                     android:layout_width="100dp"
-                     android:layout_height="100dp"
-                     android:src="@drawable/logo_hdd"
-                     android:layout_gravity="center"
-                     android:contentDescription="@string/logo_hdd" />
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:src="@drawable/logo_hdd"
+                    android:layout_gravity="center"
+                    android:contentDescription="@string/logo_hdd" />
 
-                 <TextView
-                     android:layout_width="match_parent"
-                     android:layout_height="wrap_content"
-                     android:text="Disco Duro HDD"
-                     android:textSize="18sp"
-                     android:textStyle="bold" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Disco Duro HDD"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
 
-                 <TextView
-                     android:layout_width="match_parent"
-                     android:layout_height="wrap_content"
-                     android:text="HDD 1TB, mecanico"
-                     android:textSize="14sp" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="HDD 1TB, mecanico"
+                    android:textSize="14sp" />
 
-                 <TextView
-                     android:layout_width="match_parent"
-                     android:layout_height="wrap_content"
-                     android:text="Precio: $59.99"
-                     android:textSize="14sp"
-                     android:textColor="@android:color/holo_green_dark" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Precio: $59.99"
+                    android:textSize="14sp"
+                    android:textColor="@android:color/holo_green_dark" />
 
-                 <!-- Toggle para Stock -->
-                 <Switch
-                     android:id="@+id/toggle_hdd"
-                     android:layout_width="wrap_content"
-                     android:layout_height="wrap_content"
-                     android:layout_marginTop="8dp"
-                     android:text="Disponible" />
-             </LinearLayout>
+                <!-- Toggle para Stock -->
+                <Switch
+                    android:id="@+id/toggle_hdd"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="Disponible" />
+            </LinearLayout>
+
+            <!-- Producto 12: rtx -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@android:color/white"
+                android:elevation="2dp"
+                android:padding="8dp"
+                android:layout_marginBottom="8dp">
+
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:src="@drawable/logo_2060"
+                    android:layout_gravity="center"
+                    android:contentDescription="@string/logo_rtx2060" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Gigabyte GeForce RTX 2060"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="6GB 192-Bit GDDR6"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Precio: $419.99"
+                    android:textSize="14sp"
+                    android:textColor="@android:color/holo_green_dark" />
+
+                <!-- Toggle para Stock -->
+                <Switch
+                    android:id="@+id/toggle_2060"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="Disponible" />
+            </LinearLayout>
+
+            <!-- Producto 13: gtx -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@android:color/white"
+                android:elevation="2dp"
+                android:padding="8dp"
+                android:layout_marginBottom="8dp">
+
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:src="@drawable/logo_1080"
+                    android:layout_gravity="center"
+                    android:contentDescription="@string/logo_gtx1080" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="MSI NVIDIA GeForce GTX 1080"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Gaming X 8GB GDDR5X"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Precio: $199.99"
+                    android:textSize="14sp"
+                    android:textColor="@android:color/holo_green_dark" />
+
+                <!-- Toggle para Stock -->
+                <Switch
+                    android:id="@+id/toggle_1080"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="Disponible" />
+            </LinearLayout>
+
+            <!-- Producto 14: ram32 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@android:color/white"
+                android:elevation="2dp"
+                android:padding="8dp"
+                android:layout_marginBottom="8dp">
+
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:src="@drawable/logo_ram32"
+                    android:layout_gravity="center"
+                    android:contentDescription="@string/logo_ram32" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="DDR5 RAM 32 GB (2 x 16 GB)"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="G.SKILL Trident Z5 RGB Series (Intel XMP 3.0) 6000MT/s CL36-36-36-96 1.35V"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Precio: $79.99"
+                    android:textSize="14sp"
+                    android:textColor="@android:color/holo_green_dark" />
+
+                <!-- Toggle para Stock -->
+                <Switch
+                    android:id="@+id/toggle_ram32"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="Disponible" />
+            </LinearLayout>
+
+            <!-- Producto 15: ram8 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@android:color/white"
+                android:elevation="2dp"
+                android:padding="8dp"
+                android:layout_marginBottom="8dp">
+
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:src="@drawable/logo_ram8"
+                    android:layout_gravity="center"
+                    android:contentDescription="@string/logo_ram8" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="RAM DDR4 8GB (1x8GB)"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="3200MHz CL22 1.2V SODIMM Laptop Ram Memory SK Hynix Chip"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Precio: $13.99"
+                    android:textSize="14sp"
+                    android:textColor="@android:color/holo_green_dark" />
+                <!-- Toggle para Stock -->
+                <Switch
+                    android:id="@+id/toggle_ram8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="Disponible" />
+
+            </LinearLayout>
+
+            <!-- Producto 16: Core I9 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@android:color/white"
+                android:elevation="2dp"
+                android:padding="8dp"
+                android:layout_marginBottom="8dp">
+
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:src="@drawable/logo_coreei9"
+                    android:layout_gravity="center"
+                    android:contentDescription="@string/logo_coreei9" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Intel® Core™ i9-14900KF"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="i9-14900KF de 24 núcleos (8 núcleos P + 16 núcleos E)"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Precio: $390.10"
+                    android:textSize="14sp"
+                    android:textColor="@android:color/holo_green_dark" />
+                <!-- Toggle para Stock -->
+                <Switch
+                    android:id="@+id/toggle_Corei9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="Disponible" />
+
+            </LinearLayout>
+
+            <!-- Producto 17: Core I5 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@android:color/white"
+                android:elevation="2dp"
+                android:padding="8dp"
+                android:layout_marginBottom="8dp">
+
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:src="@drawable/logo_corei5"
+                    android:layout_gravity="center"
+                    android:contentDescription="@string/logo_corei5" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Intel® Core™ i5-14600KF"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="i5-14600KF 14 núcleos (6 núcleos P + 8 núcleos E)"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Precio: $214.99"
+                    android:textSize="14sp"
+                    android:textColor="@android:color/holo_green_dark" />
+                <!-- Toggle para Stock -->
+                <Switch
+                    android:id="@+id/toggle_Corei5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="Disponible" />
+
+            </LinearLayout>
+
+            <!-- Producto 17: Core I5 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@android:color/white"
+                android:elevation="2dp"
+                android:padding="8dp"
+                android:layout_marginBottom="8dp">
+
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:src="@drawable/logo_rtx5090"
+                    android:layout_gravity="center"
+                    android:contentDescription="@string/logo_rtx5090" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="MSI GeForce RTX 5090 32G Gaming Trio OC"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="32GB GDDR7 (28Gbps/512-bit), PCIe 5X 16, Boost: 2482MHz, HDMI 2.1b, DisplayPort 2.1b"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Precio: $3999.99"
+                    android:textSize="14sp"
+                    android:textColor="@android:color/holo_green_dark" />
+                <!-- Toggle para Stock -->
+                <Switch
+                    android:id="@+id/toggle_Rtx5090"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="Disponible" />
+
+            </LinearLayout>
+
+
 
             <Button
                 android:id="@+id/btn_save_changes"
