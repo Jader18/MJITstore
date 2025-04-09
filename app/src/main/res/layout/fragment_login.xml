@@ -97,14 +97,14 @@
 
     <Button
         android:id="@+id/bGuess"
-        android:layout_width="121dp"
-        android:layout_height="47dp"
+        android:layout_width="100dp"
+        android:layout_height="43dp"
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
         android:background="@drawable/btn_ripple"
         android:gravity="center"
         android:padding="10dp"
-        android:text="VOLVER"
+        android:text="volver"
         android:textSize="14sp" />
 
 

@@ -1,9 +1,11 @@
 package com.example.mjitstore
 
+import android.content.Context
 import android.content.Intent
-import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.View
@@ -84,6 +86,28 @@ class CatalogFragment : Fragment() {
             "Fuentes de Poder" to listOf(binding.checkboxPsu.parent as ViewGroup)
         )
 
+        // Mapa de productos para el buscador
+        val productMap = mapOf(
+            "CPU Intel i7" to binding.checkboxCpu.parent as ViewGroup,
+            "RAM 16GB" to binding.checkboxRam.parent as ViewGroup,
+            "GPU RTX 3060" to binding.checkboxGpu.parent as ViewGroup,
+            "SSD 1TB" to binding.checkboxSsd.parent as ViewGroup,
+            "Teclado Mecánico RGB" to binding.checkboxKeyboard.parent as ViewGroup,
+            "Mouse Gaming 16000 DPI" to binding.checkboxMouse.parent as ViewGroup,
+            "Audífonos Inalámbricos" to binding.checkboxHeadphones.parent as ViewGroup,
+            "USB 64GB" to binding.checkboxUsb.parent as ViewGroup,
+            "Monitor 27 144Hz" to binding.checkboxMonitor.parent as ViewGroup,
+            "Fuente de Poder 650W" to binding.checkboxPsu.parent as ViewGroup,
+            "Disco Duro HDD" to binding.checkboxHdd.parent as ViewGroup,
+            "Gigabyte GeForce RTX 2060" to binding.checkbox2060.parent as ViewGroup,
+            "MSI NVIDIA GeForce GTX 1080" to binding.checkbox1080.parent as ViewGroup,
+            "DDR5 RAM 32 GB (2 x 16 GB)" to binding.checkboxRam32.parent as ViewGroup,
+            "RAM DDR4 8GB (1x8GB)" to binding.checkboxRam8.parent as ViewGroup,
+            "Intel® Core™ i9-14900KF" to binding.checkboxCorei9.parent as ViewGroup,
+            "Intel® Core™ i5-14600KF" to binding.checkboxCorei5.parent as ViewGroup,
+            "MSI GeForce RTX 5090 32G Gaming Trio OC" to binding.checkboxRtx5090.parent as ViewGroup
+        )
+
         // Configurar el botón "Ordenar por"
         binding.btnSortBy.setOnClickListener { view ->
             val popup = PopupMenu(requireContext(), view)
@@ -102,6 +126,17 @@ class CatalogFragment : Fragment() {
             }
             popup.show()
         }
+
+        // Configurar el buscador
+        binding.searchInput.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
+
+            override fun afterTextChanged(s: Editable?) {
+                val query = s.toString().trim().lowercase()
+                filterProducts(productMap, query)
+            }
+        })
 
         // Acción al presionar el botón para enviar al WhatsApp
         binding.btnSendToWhatsapp.setOnClickListener {
@@ -128,7 +163,7 @@ class CatalogFragment : Fragment() {
 
             if (selectedProducts.isNotEmpty()) {
                 val message = "Hola MJITStore, quisiera comprar los siguientes productos:\n${selectedProducts.joinToString("\n")}"
-                val phoneNumber = "50576571646" // Sin "+"
+                val phoneNumber = "50576571646"
 
                 val intent = Intent(Intent.ACTION_SEND)
                 intent.type = "text/plain"
@@ -149,28 +184,25 @@ class CatalogFragment : Fragment() {
 
     // Función para filtrar por categoría
     private fun filterByCategory(categoryMap: Map<String, List<ViewGroup>>, category: String) {
-        // Ocultar todos los layouts primero
         categoryMap.values.flatten().forEach { it.visibility = View.GONE }
-
-        // Mostrar solo los layouts de la categoría seleccionada
         categoryMap[category]?.forEach { it.visibility = View.VISIBLE }
     }
 
-    private fun configureCheckBox(checkBox: CheckBox, productKey: String, productName: String) {
-        val inStock = StockManager.isProductInStock(productKey)
-        checkBox.visibility = View.VISIBLE
-        if (inStock) {
-            checkBox.text = productName
-            checkBox.isEnabled = true
-        } else {
-            checkBox.text = "$productName (Out of Stock)"
-            checkBox.isEnabled = false
-            checkBox.isChecked = false
+    // Función para filtrar productos por nombre
+    private fun filterProducts(productMap: Map<String, ViewGroup>, query: String) {
+        productMap.forEach { (name, layout) ->
+            if (query.isEmpty() || name.lowercase().contains(query)) {
+                layout.visibility = View.VISIBLE
+            } else {
+                layout.visibility = View.GONE
+            }
         }
     }
 
+
     companion object StockManager {
-        private val stockMap = mutableMapOf(
+        private const val PREFS_NAME = "StockPrefs" // Nombre del archivo de preferencias
+        private val defaultStock = mapOf(
             "cpu" to true,
             "ram" to true,
             "gpu" to true,
@@ -191,21 +223,43 @@ class CatalogFragment : Fragment() {
             "Rtx5090" to true
         )
 
-        fun isProductInStock(product: String): Boolean {
-            return stockMap[product] ?: false
+        // Obtener el estado del stock desde SharedPreferences
+        fun isProductInStock(context: Context, product: String): Boolean {
+            val prefs = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
+            // Si no existe en SharedPreferences, usa el valor por defecto
+            return prefs.getBoolean(product, defaultStock[product] ?: false)
         }
 
-        fun setProductStock(product: String, inStock: Boolean) {
-            stockMap[product] = inStock
+        // Guardar el estado del stock en SharedPreferences
+        fun setProductStock(context: Context, product: String, inStock: Boolean) {
+            val prefs = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
+            with(prefs.edit()) {
+                putBoolean(product, inStock)
+                apply() // Guardar de forma asíncrona
+            }
         }
 
-        fun getAllStock(): Map<String, Boolean> {
-            return stockMap.toMap()
+        // Obtener todo el stock (opcional, para debugging o reportes)
+        fun getAllStock(context: Context): Map<String, Boolean> {
+            val prefs = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
+            return defaultStock.mapValues { (key, _) ->
+                prefs.getBoolean(key, defaultStock[key] ?: false)
+            }
         }
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
+    // Actualizar configureCheckBox para pasar el contexto
+    private fun configureCheckBox(checkBox: CheckBox, productKey: String, productName: String) {
+        val inStock = StockManager.isProductInStock(requireContext(), productKey)
+        checkBox.visibility = View.VISIBLE
+        if (inStock) {
+            checkBox.text = productName
+            checkBox.isEnabled = true
+        } else {
+            checkBox.text = "$productName (Out of Stock)"
+            checkBox.isEnabled = false
+            checkBox.isChecked = false
+        }
     }
 }
+

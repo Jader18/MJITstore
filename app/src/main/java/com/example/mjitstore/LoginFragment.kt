@@ -35,14 +35,6 @@ class LoginFragment : Fragment() {
 
     private fun startApp() {
 
-        val navOptions = NavOptions.Builder()
-            // Animaciones principales
-            .setEnterAnim(R.anim.slide_in_right)       // Entrada del nuevo fragmento
-            .setExitAnim(R.anim.slide_out_left)        // Salida del fragmento actual
-
-            .setLaunchSingleTop(true)                  // Evita múltiples instancias del destino
-            .setPopUpTo(R.id.loginFragment, false)     // Limpia el backstack hasta un fragmento
-            .build()
 
         binding.bLogin.setOnClickListener {
 
@@ -55,6 +47,7 @@ class LoginFragment : Fragment() {
         binding.bGuess.setOnClickListener {
             requireActivity().onBackPressedDispatcher.onBackPressed()
         }
+
     }
 
     private fun validateUser (user: String, password: String) {

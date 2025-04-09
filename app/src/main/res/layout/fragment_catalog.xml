@@ -34,6 +34,18 @@
                     android:layout_gravity="center"
                     android:text="Ordenar por"
                     android:drawableEnd="@android:drawable/ic_menu_sort_by_size" />
+
+                <EditText
+                    android:id="@+id/search_input"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="Buscar producto"
+                    android:textSize="14sp"
+                    android:padding="8dp"
+                    android:background="@android:drawable/edit_text"
+                    android:maxLines="1"
+                    android:layout_marginStart="8dp" />
             </LinearLayout>
 
             <!-- Título del catálogo -->
@@ -857,15 +869,21 @@
                     android:layout_marginTop="8dp" />
             </LinearLayout>
 
-
-
-            <!-- Botón para enviar selección al WhatsApp -->
-            <Button
-                android:id="@+id/btn_send_to_whatsapp"
+            <Space
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Enviar selección a WhatsApp"
-                android:layout_marginTop="16dp" />
+                android:layout_height="80dp" />
+
         </LinearLayout>
     </ScrollView>
+
+    <!-- Botón para enviar selección al WhatsApp -->
+    <Button
+        android:id="@+id/btn_send_to_whatsapp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
+        android:text="Enviar selección a WhatsApp" />
 </FrameLayout>

@@ -380,6 +380,12 @@
                     android:layout_gravity="center"
                     android:contentDescription="@string/logo_usb"
                     android:src="@drawable/logo_usb" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="USB 64GB"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -861,18 +867,20 @@
                     android:text="Disponible" />
 
             </LinearLayout>
-
-
-
-            <Button
-                android:id="@+id/btn_save_changes"
+            <Space
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:background="#673AB7"
-                android:text="Guardar"
-                android:textColor="@android:color/white"
-                android:textSize="16sp" />
+                android:layout_height="80dp" />
+
         </LinearLayout>
     </ScrollView>
+    <Button
+        android:id="@+id/btn_save_changes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_gravity="bottom"
+        android:background="#673AB7"
+        android:text="Guardar"
+        android:textColor="@android:color/white"
+        android:textSize="16sp" />
 </FrameLayout>

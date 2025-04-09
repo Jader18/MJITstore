@@ -26,82 +26,82 @@ class AdminFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         // Inicializar los Switches con el estado actual del stock desde StockManager
-        binding.toggleCpu.isChecked = CatalogFragment.StockManager.isProductInStock("cpu")
-        binding.toggleRam.isChecked = CatalogFragment.StockManager.isProductInStock("ram")
-        binding.toggleGpu.isChecked = CatalogFragment.StockManager.isProductInStock("gpu")
-        binding.toggleSsd.isChecked = CatalogFragment.StockManager.isProductInStock("ssd")
-        binding.toggleKeyboard.isChecked = CatalogFragment.StockManager.isProductInStock("keyboard")
-        binding.toggleMouse.isChecked = CatalogFragment.StockManager.isProductInStock("mouse")
-        binding.toggleHeadphones.isChecked = CatalogFragment.StockManager.isProductInStock("headphones")
-        binding.toggleUsb.isChecked = CatalogFragment.StockManager.isProductInStock("usb")
-        binding.toggleMonitor.isChecked = CatalogFragment.StockManager.isProductInStock("monitor")
-        binding.togglePsu.isChecked = CatalogFragment.StockManager.isProductInStock("psu")
-        binding.toggleHdd.isChecked = CatalogFragment.StockManager.isProductInStock("hdd")
-        binding.toggle2060.isChecked = CatalogFragment.StockManager.isProductInStock("rtx2060")
-        binding.toggle1080.isChecked = CatalogFragment.StockManager.isProductInStock("gtx1080")
-        binding.toggleRam32.isChecked = CatalogFragment.StockManager.isProductInStock("Ram32")
-        binding.toggleRam8.isChecked = CatalogFragment.StockManager.isProductInStock("Ram8")
-        binding.toggleCorei9.isChecked = CatalogFragment.StockManager.isProductInStock("Corei9")
-        binding.toggleCorei5.isChecked = CatalogFragment.StockManager.isProductInStock("Corei5")
-        binding.toggleRtx5090.isChecked = CatalogFragment.StockManager.isProductInStock("Rtx5090")
+        binding.toggleCpu.isChecked = CatalogFragment.StockManager.isProductInStock(requireContext(), "cpu")
+        binding.toggleRam.isChecked = CatalogFragment.StockManager.isProductInStock(requireContext(), "ram")
+        binding.toggleGpu.isChecked = CatalogFragment.StockManager.isProductInStock(requireContext(), "gpu")
+        binding.toggleSsd.isChecked = CatalogFragment.StockManager.isProductInStock(requireContext(), "ssd")
+        binding.toggleKeyboard.isChecked = CatalogFragment.StockManager.isProductInStock(requireContext(), "keyboard")
+        binding.toggleMouse.isChecked = CatalogFragment.StockManager.isProductInStock(requireContext(), "mouse")
+        binding.toggleHeadphones.isChecked = CatalogFragment.StockManager.isProductInStock(requireContext(), "headphones")
+        binding.toggleUsb.isChecked = CatalogFragment.StockManager.isProductInStock(requireContext(), "usb")
+        binding.toggleMonitor.isChecked = CatalogFragment.StockManager.isProductInStock(requireContext(), "monitor")
+        binding.togglePsu.isChecked = CatalogFragment.StockManager.isProductInStock(requireContext(), "psu")
+        binding.toggleHdd.isChecked = CatalogFragment.StockManager.isProductInStock(requireContext(), "hdd")
+        binding.toggle2060.isChecked = CatalogFragment.StockManager.isProductInStock(requireContext(), "rtx2060")
+        binding.toggle1080.isChecked = CatalogFragment.StockManager.isProductInStock(requireContext(), "gtx1080")
+        binding.toggleRam32.isChecked = CatalogFragment.StockManager.isProductInStock(requireContext(), "Ram32")
+        binding.toggleRam8.isChecked = CatalogFragment.StockManager.isProductInStock(requireContext(), "Ram8")
+        binding.toggleCorei9.isChecked = CatalogFragment.StockManager.isProductInStock(requireContext(), "Corei9")
+        binding.toggleCorei5.isChecked = CatalogFragment.StockManager.isProductInStock(requireContext(), "Corei5")
+        binding.toggleRtx5090.isChecked = CatalogFragment.StockManager.isProductInStock(requireContext(), "Rtx5090")
 
         // Configurar listeners para cada Switch
         binding.toggleCpu.setOnCheckedChangeListener { _, isChecked ->
-            CatalogFragment.StockManager.setProductStock("cpu", isChecked)
+            CatalogFragment.StockManager.setProductStock(requireContext(), "cpu", isChecked)
         }
         binding.toggleRam.setOnCheckedChangeListener { _, isChecked ->
-            CatalogFragment.StockManager.setProductStock("ram", isChecked)
+            CatalogFragment.StockManager.setProductStock(requireContext(), "ram", isChecked)
         }
         binding.toggleGpu.setOnCheckedChangeListener { _, isChecked ->
-            CatalogFragment.StockManager.setProductStock("gpu", isChecked)
+            CatalogFragment.StockManager.setProductStock(requireContext(), "gpu", isChecked)
         }
         binding.toggleSsd.setOnCheckedChangeListener { _, isChecked ->
-            CatalogFragment.StockManager.setProductStock("ssd", isChecked)
+            CatalogFragment.StockManager.setProductStock(requireContext(), "ssd", isChecked)
         }
         binding.toggleKeyboard.setOnCheckedChangeListener { _, isChecked ->
-            CatalogFragment.StockManager.setProductStock("keyboard", isChecked)
+            CatalogFragment.StockManager.setProductStock(requireContext(), "keyboard", isChecked)
         }
         binding.toggleMouse.setOnCheckedChangeListener { _, isChecked ->
-            CatalogFragment.StockManager.setProductStock("mouse", isChecked)
+            CatalogFragment.StockManager.setProductStock(requireContext(), "mouse", isChecked)
         }
         binding.toggleHeadphones.setOnCheckedChangeListener { _, isChecked ->
-            CatalogFragment.StockManager.setProductStock("headphones", isChecked)
+            CatalogFragment.StockManager.setProductStock(requireContext(), "headphones", isChecked)
         }
         binding.toggleUsb.setOnCheckedChangeListener { _, isChecked ->
-            CatalogFragment.StockManager.setProductStock("usb", isChecked)
+            CatalogFragment.StockManager.setProductStock(requireContext(), "usb", isChecked)
         }
         binding.toggleMonitor.setOnCheckedChangeListener { _, isChecked ->
-            CatalogFragment.StockManager.setProductStock("monitor", isChecked)
+            CatalogFragment.StockManager.setProductStock(requireContext(), "monitor", isChecked)
         }
         binding.togglePsu.setOnCheckedChangeListener { _, isChecked ->
-            CatalogFragment.StockManager.setProductStock("psu", isChecked)
+            CatalogFragment.StockManager.setProductStock(requireContext(), "psu", isChecked)
         }
         binding.toggleHdd.setOnCheckedChangeListener { _, isChecked ->
-            CatalogFragment.StockManager.setProductStock("hdd", isChecked)
+            CatalogFragment.StockManager.setProductStock(requireContext(), "hdd", isChecked)
         }
         binding.toggle2060.setOnCheckedChangeListener { _, isChecked ->
-            CatalogFragment.StockManager.setProductStock("rtx2060", isChecked)
+            CatalogFragment.StockManager.setProductStock(requireContext(), "rtx2060", isChecked)
         }
         binding.toggle1080.setOnCheckedChangeListener { _, isChecked ->
-            CatalogFragment.StockManager.setProductStock("gtx1080", isChecked)
+            CatalogFragment.StockManager.setProductStock(requireContext(), "gtx1080", isChecked)
         }
         binding.toggleRam32.setOnCheckedChangeListener { _, isChecked ->
-            CatalogFragment.StockManager.setProductStock("Ram32", isChecked)
+            CatalogFragment.StockManager.setProductStock(requireContext(), "Ram32", isChecked)
         }
         binding.toggleRam8.setOnCheckedChangeListener { _, isChecked ->
-            CatalogFragment.StockManager.setProductStock("Ram8", isChecked)
+            CatalogFragment.StockManager.setProductStock(requireContext(), "Ram8", isChecked)
         }
         binding.toggleCorei9.setOnCheckedChangeListener { _, isChecked ->
-            CatalogFragment.StockManager.setProductStock("Corei9", isChecked)
+            CatalogFragment.StockManager.setProductStock(requireContext(), "Corei9", isChecked)
         }
         binding.toggleCorei5.setOnCheckedChangeListener { _, isChecked ->
-            CatalogFragment.StockManager.setProductStock("Corei5", isChecked)
+            CatalogFragment.StockManager.setProductStock(requireContext(), "Corei5", isChecked)
         }
         binding.toggleRtx5090.setOnCheckedChangeListener { _, isChecked ->
-            CatalogFragment.StockManager.setProductStock("Rtx5090", isChecked)
+            CatalogFragment.StockManager.setProductStock(requireContext(), "Rtx5090", isChecked)
         }
 
-        // Mapa de productos y sus layouts
+        // Mapa de productos y sus layouts para el buscador
         val productMap = mapOf(
             "CPU Intel i7" to binding.toggleCpu.parent as ViewGroup,
             "RAM 16GB" to binding.toggleRam.parent as ViewGroup,
@@ -110,7 +110,7 @@ class AdminFragment : Fragment() {
             "Teclado Mecánico RGB" to binding.toggleKeyboard.parent as ViewGroup,
             "Mouse Gaming 16000 DPI" to binding.toggleMouse.parent as ViewGroup,
             "Audífonos Inalámbricos" to binding.toggleHeadphones.parent as ViewGroup,
-            "USB 3.0, alta velocidad" to binding.toggleUsb.parent as ViewGroup,
+            "USB 64GB" to binding.toggleUsb.parent as ViewGroup,
             "Monitor 27 144Hz" to binding.toggleMonitor.parent as ViewGroup,
             "Fuente de Poder 650W" to binding.togglePsu.parent as ViewGroup,
             "Disco Duro HDD" to binding.toggleHdd.parent as ViewGroup,
@@ -119,9 +119,8 @@ class AdminFragment : Fragment() {
             "DDR5 RAM 32 GB (2 x 16 GB)" to binding.toggleRam32.parent as ViewGroup,
             "RAM DDR4 8GB (1x8GB)" to binding.toggleRam8.parent as ViewGroup,
             "Intel® Core™ i9-14900KF" to binding.toggleCorei9.parent as ViewGroup,
-            "Intel® Core™ i5-14600KF" to binding.toggleCorei9.parent as ViewGroup,
+            "Intel® Core™ i5-14600KF" to binding.toggleCorei5.parent as ViewGroup,
             "MSI GeForce RTX 5090 32G Gaming Trio OC" to binding.toggleRtx5090.parent as ViewGroup
-
         )
 
         // Configurar el buscador
@@ -151,7 +150,6 @@ class AdminFragment : Fragment() {
             }
         }
     }
-
 
     override fun onDestroyView() {
         super.onDestroyView()

@@ -10,6 +10,8 @@ import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import com.example.mjitstore.R
 import com.example.mjitstore.databinding.FragmentMainMenuBinding
+import android.view.MenuItem
+import android.widget.PopupMenu
 
 
 class MainMenuFragment : Fragment() {
@@ -29,16 +31,28 @@ class MainMenuFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         startApp()
-        val navOptions = NavOptions.Builder()
-            .setEnterAnim(R.anim.slide_in_right)
-            .setExitAnim(R.anim.slide_out_left)
-            .setPopEnterAnim(R.anim.slide_in_left)
-            .setPopExitAnim(R.anim.slide_out_right)
-            .setLaunchSingleTop(true)
-            .build()
-        binding.bBack.setOnClickListener{
+        binding.btnMenu.setOnClickListener { view ->
+            val popup = PopupMenu(requireContext(), view)
+            popup.menu.add("Admin")
 
-            findNavController().navigate(R.id.deMenuaLogin,null,navOptions)
+            popup.setOnMenuItemClickListener { item: MenuItem ->
+                when (item.title) {
+                    "Admin" -> {
+                        val navOptions = NavOptions.Builder()
+                            .setEnterAnim(R.anim.slide_in_right)
+                            .setExitAnim(R.anim.slide_out_left)
+                            .setPopEnterAnim(R.anim.slide_in_left)
+                            .setPopExitAnim(R.anim.slide_out_right)
+                            .setLaunchSingleTop(true)
+                            .build()
+                        // Navegar a AdminFragment
+                        findNavController().navigate(R.id.deMenuaLogin, null, navOptions)
+                        true
+                    }
+                    else -> false
+                }
+            }
+            popup.show()
         }
     }
 
@@ -50,7 +64,6 @@ class MainMenuFragment : Fragment() {
             .setPopEnterAnim(R.anim.slide_in_left)
             .setPopExitAnim(R.anim.slide_out_right)
             .setLaunchSingleTop(true)
-            //.setPopUpTo(R.id.loginFragment, false)
             .build()
 
 
